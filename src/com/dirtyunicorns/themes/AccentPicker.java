@@ -31,8 +31,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
-import com.android.internal.util.du.ThemesUtils;
-import com.android.internal.util.du.Utils;
+import com.android.internal.util.pixeldust.ThemesUtils;
+import com.android.internal.util.pixeldust.PixeldustUtils;
 
 public class AccentPicker extends DialogFragment {
 
@@ -179,7 +179,7 @@ public class AccentPicker extends DialogFragment {
     }
 
     private void setForegroundDrawable(String packagename, Button buttonAccent) {
-        if (Utils.isThemeEnabled(packagename)) {
+        if (PixeldustUtils.isThemeEnabled(packagename)) {
             buttonAccent.setForeground(getActivity().getResources().getDrawable(
                     R.drawable.accent_picker_checkmark, null));
         } else {
