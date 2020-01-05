@@ -176,6 +176,82 @@ public class AccentPicker extends DialogFragment {
         Button yellowAccent = mView.findViewById(R.id.yellowAccent);
         setAccent("com.android.theme.color.yellow", yellowAccent);
         setForegroundDrawable("com.android.theme.color.yellow", yellowAccent);
+
+        Button AndroidOneGreenAccent = mView.findViewById(R.id.AndroidOneGreenAccent);
+        setAccent("com.android.theme.color.androidonegreen", AndroidOneGreenAccent);
+        setForegroundDrawable("com.android.theme.color.androidonegreen", AndroidOneGreenAccent);
+
+        Button CocaColaRedAccent = mView.findViewById(R.id.CocaColaRedAccent);
+        setAccent("com.android.theme.color.cocacolared", CocaColaRedAccent);
+        setForegroundDrawable("com.android.theme.color.cocacolared", CocaColaRedAccent);
+
+        Button DiscordPurpleAccent = mView.findViewById(R.id.DiscordPurpleAccent);
+        setAccent("com.android.theme.color.discordpurple", DiscordPurpleAccent);
+        setForegroundDrawable("com.android.theme.color.discordpurple", DiscordPurpleAccent);
+
+        Button FacebookBlueAccent = mView.findViewById(R.id.FacebookBlueAccent);
+        setAccent("com.android.theme.color.facebookblue", FacebookBlueAccent);
+        setForegroundDrawable("com.android.theme.color.facebookblue", FacebookBlueAccent);
+
+        Button InstagramCeriseAccent = mView.findViewById(R.id.InstagramCeriseAccent);
+        setAccent("com.android.theme.color.instagramcerise", InstagramCeriseAccent);
+        setForegroundDrawable("com.android.theme.color.instagramcerise", InstagramCeriseAccent);
+
+        Button JollibeeCrimsonAccent = mView.findViewById(R.id.JollibeeCrimsonAccent);
+        setAccent("com.android.theme.color.jollibeecrimson", JollibeeCrimsonAccent);
+        setForegroundDrawable("com.android.theme.color.jollibeecrimson", JollibeeCrimsonAccent);
+
+        Button MonsterEnergyGreenAccent = mView.findViewById(R.id.MonsterEnergyGreenAccent);
+        setAccent("com.android.theme.color.monsterenergygreen", MonsterEnergyGreenAccent);
+        setForegroundDrawable("com.android.theme.color.monsterenergygreen", MonsterEnergyGreenAccent);
+
+        Button NextbitMintAccent = mView.findViewById(R.id.NextbitMintAccent);
+        setAccent("com.android.theme.color.nextbitmint", NextbitMintAccent);
+        setForegroundDrawable("com.android.theme.color.nextbitmint", NextbitMintAccent);
+
+        Button OneplusRedAccent = mView.findViewById(R.id.OneplusRedAccent);
+        setAccent("com.android.theme.color.oneplusred", OneplusRedAccent);
+        setForegroundDrawable("com.android.theme.color.oneplusred", OneplusRedAccent);
+
+        Button PepsiBlueAccent = mView.findViewById(R.id.PepsiBlueAccent);
+        setAccent("com.android.theme.color.pepsiblue", PepsiBlueAccent);
+        setForegroundDrawable("com.android.theme.color.pepsiblue", PepsiBlueAccent);
+
+        Button PocophoneYellowAccent = mView.findViewById(R.id.PocophoneYellowAccent);
+        setAccent("com.android.theme.color.pocophoneyellow", PocophoneYellowAccent);
+        setForegroundDrawable("com.android.theme.color.pocophoneyellow", PocophoneYellowAccent);
+
+        Button RazerGreenAccent = mView.findViewById(R.id.RazerGreenAccent);
+        setAccent("com.android.theme.color.razergreen", RazerGreenAccent);
+        setForegroundDrawable("com.android.theme.color.razergreen", RazerGreenAccent);
+
+        Button SamsungBlueAccent = mView.findViewById(R.id.SamsungBlueAccent);
+        setAccent("com.android.theme.color.samsungblue", SamsungBlueAccent);
+        setForegroundDrawable("com.android.theme.color.samsungblue", SamsungBlueAccent);
+
+        Button SpotifyGreenAccent = mView.findViewById(R.id.SpotifyGreenAccent);
+        setAccent("com.android.theme.color.spotifygreen", SpotifyGreenAccent);
+        setForegroundDrawable("com.android.theme.color.spotifygreen", SpotifyGreenAccent);
+
+        Button StarbucksGreenAccent = mView.findViewById(R.id.StarbucksGreenAccent);
+        setAccent("com.android.theme.color.starbucksgreen", StarbucksGreenAccent);
+        setForegroundDrawable("com.android.theme.color.starbucksgreen", StarbucksGreenAccent);
+
+        Button TwitchPurpleAccent = mView.findViewById(R.id.TwitchPurpleAccent);
+        setAccent("com.android.theme.color.twitchpurple", TwitchPurpleAccent);
+        setForegroundDrawable("com.android.theme.color.twitchpurple", TwitchPurpleAccent);
+
+        Button TwitterBlueAccent = mView.findViewById(R.id.TwitterBlueAccent);
+        setAccent("com.android.theme.color.twitterblue", TwitterBlueAccent);
+        setForegroundDrawable("com.android.theme.color.twitterblue", TwitterBlueAccent);
+
+        Button XboxGreenAccent = mView.findViewById(R.id.XboxGreenAccent);
+        setAccent("com.android.theme.color.xboxgreen", XboxGreenAccent);
+        setForegroundDrawable("com.android.theme.color.xboxgreen", XboxGreenAccent);
+
+        Button XiaomiOrangeAccent = mView.findViewById(R.id.XiaomiOrangeAccent);
+        setAccent("com.android.theme.color.xiaomiorange", XiaomiOrangeAccent);
+        setForegroundDrawable("com.android.theme.color.xiaomiorange", XiaomiOrangeAccent);
     }
 
     private void setForegroundDrawable(String packagename, Button buttonAccent) {

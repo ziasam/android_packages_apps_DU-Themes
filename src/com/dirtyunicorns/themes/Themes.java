@@ -265,6 +265,44 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
             mAccentPicker.setSummary("Teal");
         } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.yellow")) {
             mAccentPicker.setSummary("Yellow");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.androidonegreen")) {
+            mAccentPicker.setSummary("AndroidOneGreen");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.cocacolared")) {
+            mAccentPicker.setSummary("CocaColaRed");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.discordpurple")) {
+            mAccentPicker.setSummary("DiscordPurple");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.facebookblue")) {
+            mAccentPicker.setSummary("FacebookBlue");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.instagramcerise")) {
+            mAccentPicker.setSummary("InstagramCerise");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.jollibeecrimson")) {
+            mAccentPicker.setSummary("JollibeeCrimson");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.monsterenergygreen")) {
+            mAccentPicker.setSummary("MonsterEnergyGreen");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.nextbitmint")) {
+            mAccentPicker.setSummary("NextbitMint");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.oneplusred")) {
+            mAccentPicker.setSummary("OneplusRed");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.pepsiblue")) {
+            mAccentPicker.setSummary("PepsiBlue");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.pocophoneyellow")) {
+            mAccentPicker.setSummary("PocophoneYellow");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.razergreen")) {
+            mAccentPicker.setSummary("RazerGreen");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.samsungblue")) {
+            mAccentPicker.setSummary("SamsungBlue");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.spotifygreen")) {
+            mAccentPicker.setSummary("SpotifyGreen");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.starbucksgreen")) {
+            mAccentPicker.setSummary("StarbucksGreen");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.twitchpurple")) {
+            mAccentPicker.setSummary("TwitchPurple");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.twitterblue")) {
+            mAccentPicker.setSummary("TwitterBlue");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.xboxgreen")) {
+            mAccentPicker.setSummary("XboxGreen");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.color.xiaomiorange")) {
+            mAccentPicker.setSummary("XiaomiOrange");
         } else {
             mAccentPicker.setSummary(getString(R.string.theme_accent_picker_default));
         }
