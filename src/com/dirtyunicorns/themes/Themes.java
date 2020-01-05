@@ -20,12 +20,15 @@ import static android.os.UserHandle.USER_SYSTEM;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.UiModeManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.om.IOverlayManager;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -41,18 +44,27 @@ import androidx.preference.SwitchPreference;
 import com.android.internal.util.pixeldust.PixeldustUtils;
 import com.android.internal.util.pixeldust.ThemesUtils;
 
+import com.dirtyunicorns.themes.db.ThemeDatabase;
+
 import java.util.Objects;
 
-public class Themes extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class Themes extends PreferenceFragment implements ThemesListener {
 
-    private static final String PREF_ACCENT_PICKER = "accent_picker";
-    private static final String PREF_ADAPTIVE_ICON_SHAPE = "adapative_icon_shape";
-    private static final String PREF_FONT_PICKER = "font_picker";
-    private static final String PREF_STATUSBAR_ICONS = "statusbar_icons";
-    private static final String PREF_THEME_SWITCH = "theme_switch";
+    private static final String PREF_BACKUP_THEMES = "backup_themes";
+    private static final String PREF_RESTORE_THEMES = "restore_themes";
+    public static final String PREF_ACCENT_PICKER = "accent_picker";
+    public static final String PREF_ADAPTIVE_ICON_SHAPE = "adapative_icon_shape";
+    public static final String PREF_FONT_PICKER = "font_picker";
+    public static final String PREF_STATUSBAR_ICONS = "statusbar_icons";
+    public static final String PREF_THEME_SWITCH = "theme_switch";
 
+    private static boolean mUseSharedPrefListener;
+    private int mBackupLimit = 10;
+
+    private Activity mActivity;
     private IOverlayManager mOverlayManager;
     private SharedPreferences mSharedPreferences;
+    private ThemeDatabase mThemeDatabase;
     private UiModeManager mUiModeManager;
 
     private ListPreference mAdaptiveIconShape;
@@ -60,6 +72,8 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
     private ListPreference mStatusbarIcons;
     private ListPreference mThemeSwitch;
     private Preference mAccentPicker;
+    private Preference mBackupThemes;
+    private Preference mRestoreThemes;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,14 +81,17 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
 
         addPreferencesFromResource(R.xml.themes);
 
-        ActionBar actionBar = getActivity().getActionBar();
+        mActivity = getActivity();
+
+        ActionBar actionBar = mActivity.getActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         mUiModeManager = getContext().getSystemService(UiModeManager.class);
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mActivity);
+        mSharedPreferences.registerOnSharedPreferenceChangeListener(mSharedPrefListener);
+        mThemeDatabase = new ThemeDatabase(mActivity);
 
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
@@ -90,6 +107,38 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
                 }
                 AccentPicker accentPickerFragment = new AccentPicker();
                 accentPickerFragment.show(manager, AccentPicker.TAG_ACCENT_PICKER);
+                return true;
+            }
+        });
+
+        // Themes backup
+        mBackupThemes = (Preference) findPreference(PREF_BACKUP_THEMES);
+        assert mBackupThemes != null;
+        mBackupThemes.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                FragmentManager manager = getFragmentManager();
+                Fragment frag = manager.findFragmentByTag(BackupThemes.TAG_BACKUP_THEMES);
+                if (frag != null) {
+                    manager.beginTransaction().remove(frag).commit();
+                }
+                BackupThemes backupThemesFragment = new BackupThemes(Themes.this);
+                backupThemesFragment.show(manager, BackupThemes.TAG_BACKUP_THEMES);
+                return true;
+            }
+        });
+
+        // Themes restore
+        mRestoreThemes = (Preference) findPreference(PREF_RESTORE_THEMES);
+        assert mRestoreThemes != null;
+        mRestoreThemes.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(mActivity, RestoreThemes.class);
+                if (intent != null) {
+                    setSharedPrefListener(true);
+                    startActivity(intent);
+                }
                 return true;
             }
         });
@@ -171,83 +220,110 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
             mStatusbarIcons.setValue("1");
         }
         mStatusbarIcons.setSummary(mStatusbarIcons.getEntry());
+
+        updateBackupPref();
+        updateRestorePref();
     }
 
-    @Override
-    public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
-        class PrepareData extends AsyncTask<Void, Void, Void> {
+    private void updateBackupPref() {
+        mBackupThemes.setEnabled(getThemeCount() < mBackupLimit ? true : false);
+        if (getThemeCount() == mBackupLimit) {
+            mBackupThemes.setSummary(R.string.theme_backup_reach_limit_summary);
+        } else {
+            mBackupThemes.setSummary(R.string.theme_backup_summary);
+        }
+    }
 
-            protected Void doInBackground(Void... param) {
-                return null;
-            }
+    private void updateRestorePref() {
+        mRestoreThemes.setEnabled(getThemeCount() > 0 ? true : false);
+        if (getThemeCount() == 0) {
+            mRestoreThemes.setSummary(R.string.theme_restore_no_backup_summary);
+        } else {
+            mRestoreThemes.setSummary(R.string.theme_restore_summary);
+        }
+    }
 
-            protected void onPostExecute(Void param) {
-            }
+    private int getThemeCount() {
+        int count = mThemeDatabase.getThemeDbUtilsCount();
+        return count;
+    }
 
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                String font_type = sharedPreferences.getString(PREF_FONT_PICKER, "1");
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.notoserifsource")) {
-                    handleOverlays("com.android.theme.font.notoserifsource", false);
+    public OnSharedPreferenceChangeListener mSharedPrefListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+            class PrepareData extends AsyncTask<Void, Void, Void> {
+
+                protected Void doInBackground(Void... param) {
+                    return null;
                 }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.aclonicasource")) {
-                    handleOverlays("com.android.theme.font.aclonicasource", false);
+
+                protected void onPostExecute(Void param) {
                 }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.amarantesource")) {
-                    handleOverlays("com.android.theme.font.amarantesource", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.bariolsource")) {
-                    handleOverlays("com.android.theme.font.bariolsource", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.cagliostrosource")) {
-                    handleOverlays("com.android.theme.font.cagliostrosource", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.comicsanssource")) {
-                    handleOverlays("com.android.theme.font.comicsanssource", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.coolstorysource")) {
-                    handleOverlays("com.android.theme.font.coolstorysource", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.firasans")) {
-                    handleOverlays("com.android.theme.font.firasans", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.googlesans")) {
-                    handleOverlays("com.android.theme.font.googlesans", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.lgsmartgothicsource")) {
-                    handleOverlays("com.android.theme.font.lgsmartgothicsource", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.oneplusslate")) {
-                    handleOverlays("com.android.theme.font.oneplusslate", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.rosemarysource")) {
-                    handleOverlays("com.android.theme.font.rosemarysource", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.samsungone")) {
-                    handleOverlays("com.android.theme.font.samsungone", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sanfrancisco")) {
-                    handleOverlays("com.android.theme.font.sanfrancisco", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sonysketchsource")) {
-                    handleOverlays("com.android.theme.font.sonysketchsource", false);
-                }
-                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.surfersource")) {
-                    handleOverlays("com.android.theme.font.surfersource", false);
-                }
-                switch (font_type) {
-                    case "1":
-                        for (int i = 0; i < ThemesUtils.FONTS.length; i++) {
-                            String fonts = ThemesUtils.FONTS[i];
-                            try {
-                                mOverlayManager.setEnabled(fonts, false, USER_SYSTEM);
-                            } catch (RemoteException e) {
-                                e.printStackTrace();
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    String font_type = sharedPreferences.getString(PREF_FONT_PICKER, "1");
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.notoserifsource")) {
+                        handleOverlays("com.android.theme.font.notoserifsource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.aclonicasource")) {
+                        handleOverlays("com.android.theme.font.aclonicasource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.amarantesource")) {
+                        handleOverlays("com.android.theme.font.amarantesource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.bariolsource")) {
+                        handleOverlays("com.android.theme.font.bariolsource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.cagliostrosource")) {
+                        handleOverlays("com.android.theme.font.cagliostrosource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.comicsanssource")) {
+                        handleOverlays("com.android.theme.font.comicsanssource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.coolstorysource")) {
+                        handleOverlays("com.android.theme.font.coolstorysource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.firasans")) {
+                        handleOverlays("com.android.theme.font.firasans", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.googlesans")) {
+                        handleOverlays("com.android.theme.font.googlesans", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.lgsmartgothicsource")) {
+                        handleOverlays("com.android.theme.font.lgsmartgothicsource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.oneplusslate")) {
+                        handleOverlays("com.android.theme.font.oneplusslate", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.rosemarysource")) {
+                        handleOverlays("com.android.theme.font.rosemarysource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.samsungone")) {
+                        handleOverlays("com.android.theme.font.samsungone", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sanfrancisco")) {
+                        handleOverlays("com.android.theme.font.sanfrancisco", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sonysketchsource")) {
+                        handleOverlays("com.android.theme.font.sonysketchsource", false);
+                    }
+                    if (PixeldustUtils.isThemeEnabled("com.android.theme.font.surfersource")) {
+                        handleOverlays("com.android.theme.font.surfersource", false);
+                    }
+                    switch (font_type) {
+                        case "1":
+                            for (int i = 0; i < ThemesUtils.FONTS.length; i++) {
+                                String fonts = ThemesUtils.FONTS[i];
+                                try {
+                                    mOverlayManager.setEnabled(fonts, false, USER_SYSTEM);
+                                } catch (RemoteException e) {
+                                    e.printStackTrace();
+                                }
                             }
-                        }
-                        break;
-                    case "2":
+                            break;
+                        case "2":
                         handleOverlays("com.android.theme.font.notoserifsource", true);
                         break;
                     case "3":
@@ -295,105 +371,134 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
                     case "17":
                         handleOverlays("com.android.theme.font.surfersource", true);
                         break;
+                    }
+                    mFontPicker.setSummary(mFontPicker.getEntry());
                 }
-                mFontPicker.setSummary(mFontPicker.getEntry());
+            }
+
+            if (key.equals(PREF_FONT_PICKER)) {
+                new PrepareData().execute();
+            }
+
+            if (key.equals(PREF_ADAPTIVE_ICON_SHAPE)) {
+                String adapative_icon_shape = sharedPreferences.getString(PREF_ADAPTIVE_ICON_SHAPE, "1");
+
+                handleOverlays("com.android.theme.icon.teardrop", false);
+                handleOverlays("com.android.theme.icon.squircle", false);
+                handleOverlays("com.android.theme.icon.roundedrect", false);
+                handleOverlays("com.android.theme.icon.cylinder", false);
+                handleOverlays("com.android.theme.icon.hexagon", false);
+
+                switch (adapative_icon_shape) {
+                    case "2":
+                        handleOverlays("com.android.theme.icon.teardrop", true);
+                        break;
+                    case "3":
+                        handleOverlays("com.android.theme.icon.squircle", true);
+                        break;
+                    case "4":
+                        handleOverlays("com.android.theme.icon.roundedrect", true);
+                        break;
+                    case "5":
+                        handleOverlays("com.android.theme.icon.cylinder", true);
+                        break;
+                    case "6":
+                        handleOverlays("com.android.theme.icon.hexagon", true);
+                        break;
+                }
+                mAdaptiveIconShape.setSummary(mAdaptiveIconShape.getEntry());
+            }
+
+            if (key.equals(PREF_STATUSBAR_ICONS)) {
+                String statusbar_icons = sharedPreferences.getString(PREF_STATUSBAR_ICONS, "1");
+                switch (statusbar_icons) {
+                    case "1":
+                        handleOverlays("com.android.theme.icon_pack.filled.android", false);
+                        handleOverlays("com.android.theme.icon_pack.rounded.android", false);
+                        handleOverlays("com.android.theme.icon_pack.circular.android", false);
+                        break;
+                    case "2":
+                        handleOverlays("com.android.theme.icon_pack.filled.android", true);
+                        handleOverlays("com.android.theme.icon_pack.rounded.android", false);
+                        handleOverlays("com.android.theme.icon_pack.circular.android", false);
+                        break;
+                    case "3":
+                        handleOverlays("com.android.theme.icon_pack.filled.android", false);
+                        handleOverlays("com.android.theme.icon_pack.rounded.android", true);
+                        handleOverlays("com.android.theme.icon_pack.circular.android", false);
+                        break;
+                    case "4":
+                        handleOverlays("com.android.theme.icon_pack.filled.android", false);
+                        handleOverlays("com.android.theme.icon_pack.rounded.android", false);
+                        handleOverlays("com.android.theme.icon_pack.circular.android", true);
+                        break;
+                }
+                mStatusbarIcons.setSummary(mStatusbarIcons.getEntry());
+            }
+
+            if (key.equals(PREF_THEME_SWITCH)) {
+                String theme_switch = sharedPreferences.getString(PREF_THEME_SWITCH, "1");
+                switch (theme_switch) {
+                    case "1":
+                        handleBackgrounds(false, mActivity, UiModeManager.MODE_NIGHT_NO, ThemesUtils.PITCH_BLACK);
+                        handleBackgrounds(false, mActivity, UiModeManager.MODE_NIGHT_NO, ThemesUtils.SOLARIZED_DARK);
+                        break;
+                    case "2":
+                        handleBackgrounds(false, mActivity, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
+                        handleBackgrounds(false, mActivity, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
+                        break;
+                    case "3":
+                        handleBackgrounds(true, mActivity, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
+                        handleBackgrounds(false, mActivity, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
+                        break;
+                    case "4":
+                        handleBackgrounds(false, mActivity, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
+                        handleBackgrounds(true, mActivity, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
+                        break;
+                }
+                mThemeSwitch.setSummary(mThemeSwitch.getEntry());
             }
         }
-
-        if (key.equals(PREF_FONT_PICKER)) {
-            new PrepareData().execute();
-        }
-
-        if (key.equals(PREF_ADAPTIVE_ICON_SHAPE)) {
-            String adapative_icon_shape = sharedPreferences.getString(PREF_ADAPTIVE_ICON_SHAPE, "1");
-
-            handleOverlays("com.android.theme.icon.teardrop", false);
-            handleOverlays("com.android.theme.icon.squircle", false);
-            handleOverlays("com.android.theme.icon.roundedrect", false);
-            handleOverlays("com.android.theme.icon.cylinder", false);
-            handleOverlays("com.android.theme.icon.hexagon", false);
-
-            switch (adapative_icon_shape) {
-                case "2":
-                    handleOverlays("com.android.theme.icon.teardrop", true);
-                    break;
-                case "3":
-                    handleOverlays("com.android.theme.icon.squircle", true);
-                    break;
-                case "4":
-                    handleOverlays("com.android.theme.icon.roundedrect", true);
-                    break;
-                case "5":
-                    handleOverlays("com.android.theme.icon.cylinder", true);
-                    break;
-                case "6":
-                    handleOverlays("com.android.theme.icon.hexagon", true);
-                    break;
-            }
-            mAdaptiveIconShape.setSummary(mAdaptiveIconShape.getEntry());
-        }
-
-        if (key.equals(PREF_STATUSBAR_ICONS)) {
-            String statusbar_icons = sharedPreferences.getString(PREF_STATUSBAR_ICONS, "1");
-            switch (statusbar_icons) {
-                case "1":
-                    handleOverlays("com.android.theme.icon_pack.filled.android", false);
-                    handleOverlays("com.android.theme.icon_pack.rounded.android", false);
-                    handleOverlays("com.android.theme.icon_pack.circular.android", false);
-                    break;
-                case "2":
-                    handleOverlays("com.android.theme.icon_pack.filled.android", true);
-                    handleOverlays("com.android.theme.icon_pack.rounded.android", false);
-                    handleOverlays("com.android.theme.icon_pack.circular.android", false);
-                    break;
-                case "3":
-                    handleOverlays("com.android.theme.icon_pack.filled.android", false);
-                    handleOverlays("com.android.theme.icon_pack.rounded.android", true);
-                    handleOverlays("com.android.theme.icon_pack.circular.android", false);
-                    break;
-                case "4":
-                    handleOverlays("com.android.theme.icon_pack.filled.android", false);
-                    handleOverlays("com.android.theme.icon_pack.rounded.android", false);
-                    handleOverlays("com.android.theme.icon_pack.circular.android", true);
-                    break;
-            }
-            mStatusbarIcons.setSummary(mStatusbarIcons.getEntry());
-        }
-
-        if (key.equals(PREF_THEME_SWITCH)) {
-            String theme_switch = sharedPreferences.getString(PREF_THEME_SWITCH, "1");
-            final Context context = getContext();
-            switch (theme_switch) {
-                case "1":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.SOLARIZED_DARK);
-                    break;
-                case "2":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    break;
-                case "3":
-                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    break;
-                case "4":
-                    handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                    handleBackgrounds(true, context, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                    break;
-            }
-            mThemeSwitch.setSummary(mThemeSwitch.getEntry());
-        }
-    }
+    };
 
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    }
+
+    public static void setSharedPrefListener(boolean listener) {
+        mUseSharedPrefListener = listener;
+    }
+
+    @Override
+    public void onCloseBackupDialog(DialogFragment dialog) {
+        updateBackupPref();
+        updateRestorePref();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        mSharedPreferences.registerOnSharedPreferenceChangeListener(mSharedPrefListener);
+        updateBackupPref();
+        updateRestorePref();
         updateAccentSummary();
         updateIconShapeSummary();
         updateStatusbarIconsSummary();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (!mUseSharedPrefListener) {
+            mSharedPreferences.unregisterOnSharedPreferenceChangeListener(mSharedPrefListener);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (!mUseSharedPrefListener) {
+            mSharedPreferences.unregisterOnSharedPreferenceChangeListener(mSharedPrefListener);
+        }
     }
 
     private void updateAccentSummary() {
@@ -541,13 +646,9 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            goUpToTopLevelSetting(getActivity());
+            mActivity.finish();
             return true;
         }
         return false;
-    }
-
-    private static void goUpToTopLevelSetting(Activity activity) {
-        activity.finish();
     }
 }
