@@ -40,10 +40,11 @@
     <string name="font_type_6">Cagliostro</string>
     <string name="font_type_7">Comic Sans</string>
     <string name="font_type_8">Cool Story</string>
-    <string name="font_type_9">LG Smart Gothic</string>
-    <string name="font_type_10">Rosemary</string>
-    <string name="font_type_11">Sony Sketch</string>
-    <string name="font_type_12">Surfer</string>
+    <string name="font_type_9">Google Sans</string>
+    <string name="font_type_10">LG Smart Gothic</string>
+    <string name="font_type_11">Rosemary</string>
+    <string name="font_type_12">Sony Sketch</string>
+    <string name="font_type_13">Surfer</string>
 
     <!-- Adaptive icon shapes -->
     <string name="adaptive_icon_shape_default">Default</string>
