@@ -125,12 +125,16 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
             mFontPicker.setValue("9");
         } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.lgsmartgothicsource")) {
             mFontPicker.setValue("10");
-        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.rosemarysource")) {
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.oneplusslate")) {
             mFontPicker.setValue("11");
-        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sonysketchsource")) {
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.rosemarysource")) {
             mFontPicker.setValue("12");
-        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.surfersource")) {
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.samsungone")) {
             mFontPicker.setValue("13");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sonysketchsource")) {
+            mFontPicker.setValue("14");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.surfersource")) {
+            mFontPicker.setValue("15");
         } else {
             mFontPicker.setValue("1");
         }
@@ -207,8 +211,14 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
                 if (PixeldustUtils.isThemeEnabled("com.android.theme.font.lgsmartgothicsource")) {
                     handleOverlays("com.android.theme.font.lgsmartgothicsource", false);
                 }
+                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.oneplusslate")) {
+                    handleOverlays("com.android.theme.font.oneplusslate", false);
+                }
                 if (PixeldustUtils.isThemeEnabled("com.android.theme.font.rosemarysource")) {
                     handleOverlays("com.android.theme.font.rosemarysource", false);
+                }
+                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.samsungone")) {
+                    handleOverlays("com.android.theme.font.samsungone", false);
                 }
                 if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sonysketchsource")) {
                     handleOverlays("com.android.theme.font.sonysketchsource", false);
@@ -255,12 +265,18 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
                         handleOverlays("com.android.theme.font.lgsmartgothicsource", true);
                         break;
                     case "11":
-                        handleOverlays("com.android.theme.font.rosemarysource", true);
+                        handleOverlays("com.android.theme.font.oneplusslate", true);
                         break;
                     case "12":
-                        handleOverlays("com.android.theme.font.sonysketchsource", true);
+                        handleOverlays("com.android.theme.font.rosemarysource", true);
                         break;
                     case "13":
+                        handleOverlays("com.android.theme.font.samsungone", true);
+                        break;
+                    case "14":
+                        handleOverlays("com.android.theme.font.sonysketchsource", true);
+                        break;
+                    case "15":
                         handleOverlays("com.android.theme.font.surfersource", true);
                         break;
                 }
