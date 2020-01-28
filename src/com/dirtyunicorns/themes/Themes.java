@@ -18,6 +18,9 @@ package com.dirtyunicorns.themes;
 
 import static android.content.Context.ALARM_SERVICE;
 import static android.os.UserHandle.USER_SYSTEM;
+import static com.dirtyunicorns.themes.utils.Utils.handleBackgrounds;
+import static com.dirtyunicorns.themes.utils.Utils.handleOverlays;
+import static com.dirtyunicorns.themes.utils.Utils.isLiveWallpaper;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -56,9 +59,6 @@ import com.android.internal.util.pixeldust.ThemesUtils;
 import com.dirtyunicorns.themes.db.ThemeDatabase;
 
 import java.util.Calendar;
-import java.util.Objects;
-
-import static com.dirtyunicorns.themes.utils.Utils.isLiveWallpaper;
 
 public class Themes extends PreferenceFragment implements ThemesListener {
 
@@ -370,6 +370,7 @@ public class Themes extends PreferenceFragment implements ThemesListener {
     public OnSharedPreferenceChangeListener mSharedPrefListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
             class FontPicker extends AsyncTask<Void, Void, Void> {
 
                 protected Void doInBackground(Void... param) {
@@ -384,52 +385,52 @@ public class Themes extends PreferenceFragment implements ThemesListener {
                     super.onPreExecute();
                     String font_type = sharedPreferences.getString(PREF_FONT_PICKER, "1");
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.notoserifsource")) {
-                        handleOverlays("com.android.theme.font.notoserifsource", false);
+                        handleOverlays("com.android.theme.font.notoserifsource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.aclonicasource")) {
-                        handleOverlays("com.android.theme.font.aclonicasource", false);
+                        handleOverlays("com.android.theme.font.aclonicasource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.amarantesource")) {
-                        handleOverlays("com.android.theme.font.amarantesource", false);
+                        handleOverlays("com.android.theme.font.amarantesource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.bariolsource")) {
-                        handleOverlays("com.android.theme.font.bariolsource", false);
+                        handleOverlays("com.android.theme.font.bariolsource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.cagliostrosource")) {
-                        handleOverlays("com.android.theme.font.cagliostrosource", false);
+                        handleOverlays("com.android.theme.font.cagliostrosource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.comicsanssource")) {
-                        handleOverlays("com.android.theme.font.comicsanssource", false);
+                        handleOverlays("com.android.theme.font.comicsanssource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.coolstorysource")) {
-                        handleOverlays("com.android.theme.font.coolstorysource", false);
+                        handleOverlays("com.android.theme.font.coolstorysource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.firasans")) {
-                        handleOverlays("com.android.theme.font.firasans", false);
+                        handleOverlays("com.android.theme.font.firasans", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.googlesans")) {
-                        handleOverlays("com.android.theme.font.googlesans", false);
+                        handleOverlays("com.android.theme.font.googlesans", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.lgsmartgothicsource")) {
-                        handleOverlays("com.android.theme.font.lgsmartgothicsource", false);
+                        handleOverlays("com.android.theme.font.lgsmartgothicsource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.oneplusslate")) {
-                        handleOverlays("com.android.theme.font.oneplusslate", false);
+                        handleOverlays("com.android.theme.font.oneplusslate", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.rosemarysource")) {
-                        handleOverlays("com.android.theme.font.rosemarysource", false);
+                        handleOverlays("com.android.theme.font.rosemarysource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.samsungone")) {
-                        handleOverlays("com.android.theme.font.samsungone", false);
+                        handleOverlays("com.android.theme.font.samsungone", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sanfrancisco")) {
-                        handleOverlays("com.android.theme.font.sanfrancisco", false);
+                        handleOverlays("com.android.theme.font.sanfrancisco", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sonysketchsource")) {
-                        handleOverlays("com.android.theme.font.sonysketchsource", false);
+                        handleOverlays("com.android.theme.font.sonysketchsource", false, mOverlayManager);
                     }
                     if (PixeldustUtils.isThemeEnabled("com.android.theme.font.surfersource")) {
-                        handleOverlays("com.android.theme.font.surfersource", false);
+                        handleOverlays("com.android.theme.font.surfersource", false, mOverlayManager);
                     }
                     switch (font_type) {
                         case "1":
@@ -443,52 +444,52 @@ public class Themes extends PreferenceFragment implements ThemesListener {
                             }
                             break;
                         case "2":
-                        handleOverlays("com.android.theme.font.notoserifsource", true);
+                        handleOverlays("com.android.theme.font.notoserifsource", true, mOverlayManager);
                         break;
                     case "3":
-                        handleOverlays("com.android.theme.font.aclonicasource", true);
+                        handleOverlays("com.android.theme.font.aclonicasource", true, mOverlayManager);
                         break;
                     case "4":
-                        handleOverlays("com.android.theme.font.amarantesource", true);
+                        handleOverlays("com.android.theme.font.amarantesource", true, mOverlayManager);
                         break;
                     case "5":
-                        handleOverlays("com.android.theme.font.bariolsource", true);
+                        handleOverlays("com.android.theme.font.bariolsource", true, mOverlayManager);
                         break;
                     case "6":
-                        handleOverlays("com.android.theme.font.cagliostrosource", true);
+                        handleOverlays("com.android.theme.font.cagliostrosource", true, mOverlayManager);
                         break;
                     case "7":
-                        handleOverlays("com.android.theme.font.comicsanssource", true);
+                        handleOverlays("com.android.theme.font.comicsanssource", true, mOverlayManager);
                         break;
                     case "8":
-                        handleOverlays("com.android.theme.font.coolstorysource", true);
+                        handleOverlays("com.android.theme.font.coolstorysource", true, mOverlayManager);
                         break;
                     case "9":
-                        handleOverlays("com.android.theme.font.firasans", true);
+                        handleOverlays("com.android.theme.font.firasans", true, mOverlayManager);
                         break;
                     case "10":
-                        handleOverlays("com.android.theme.font.googlesans", true);
+                        handleOverlays("com.android.theme.font.googlesans", true, mOverlayManager);
                         break;
                     case "11":
-                        handleOverlays("com.android.theme.font.lgsmartgothicsource", true);
+                        handleOverlays("com.android.theme.font.lgsmartgothicsource", true, mOverlayManager);
                         break;
                     case "12":
-                        handleOverlays("com.android.theme.font.oneplusslate", true);
+                        handleOverlays("com.android.theme.font.oneplusslate", true, mOverlayManager);
                         break;
                     case "13":
-                        handleOverlays("com.android.theme.font.rosemarysource", true);
+                        handleOverlays("com.android.theme.font.rosemarysource", true, mOverlayManager);
                         break;
                     case "14":
-                        handleOverlays("com.android.theme.font.samsungone", true);
+                        handleOverlays("com.android.theme.font.samsungone", true, mOverlayManager);
                         break;
                     case "15":
-                        handleOverlays("com.android.theme.font.sanfrancisco", true);
+                        handleOverlays("com.android.theme.font.sanfrancisco", true, mOverlayManager);
                         break;
                     case "16":
-                        handleOverlays("com.android.theme.font.sonysketchsource", true);
+                        handleOverlays("com.android.theme.font.sonysketchsource", true, mOverlayManager);
                         break;
                     case "17":
-                        handleOverlays("com.android.theme.font.surfersource", true);
+                        handleOverlays("com.android.theme.font.surfersource", true, mOverlayManager);
                         break;
                     }
                     mFontPicker.setSummary(mFontPicker.getEntry());
@@ -502,140 +503,139 @@ public class Themes extends PreferenceFragment implements ThemesListener {
             if (key.equals(PREF_ADAPTIVE_ICON_SHAPE)) {
                 String adapative_icon_shape = sharedPreferences.getString(PREF_ADAPTIVE_ICON_SHAPE, "1");
 
-                handleOverlays("com.android.theme.icon.teardrop", false);
-                handleOverlays("com.android.theme.icon.squircle", false);
-                handleOverlays("com.android.theme.icon.roundedrect", false);
-                handleOverlays("com.android.theme.icon.cylinder", false);
-                handleOverlays("com.android.theme.icon.hexagon", false);
+                handleOverlays("com.android.theme.icon.teardrop", false, mOverlayManager);
+                handleOverlays("com.android.theme.icon.squircle", false, mOverlayManager);
+                handleOverlays("com.android.theme.icon.roundedrect", false, mOverlayManager);
+                handleOverlays("com.android.theme.icon.cylinder", false, mOverlayManager);
+                handleOverlays("com.android.theme.icon.hexagon", false, mOverlayManager);
 
                 switch (adapative_icon_shape) {
                     case "2":
-                        handleOverlays("com.android.theme.icon.teardrop", true);
+                        handleOverlays("com.android.theme.icon.teardrop", true, mOverlayManager);
                         break;
                     case "3":
-                        handleOverlays("com.android.theme.icon.squircle", true);
+                        handleOverlays("com.android.theme.icon.squircle", true, mOverlayManager);
                         break;
                     case "4":
-                        handleOverlays("com.android.theme.icon.roundedrect", true);
+                        handleOverlays("com.android.theme.icon.roundedrect", true, mOverlayManager);
                         break;
                     case "5":
-                        handleOverlays("com.android.theme.icon.cylinder", true);
+                        handleOverlays("com.android.theme.icon.cylinder", true, mOverlayManager);
                         break;
                     case "6":
-                        handleOverlays("com.android.theme.icon.hexagon", true);
+                        handleOverlays("com.android.theme.icon.hexagon", true, mOverlayManager);
                         break;
-                    }
-                    mAdaptiveIconShape.setSummary(mAdaptiveIconShape.getEntry());
                 }
+                mAdaptiveIconShape.setSummary(mAdaptiveIconShape.getEntry());
+            }
 
-                if (key.equals(PREF_STATUSBAR_ICONS)) {
-                    String statusbar_icons = sharedPreferences.getString(PREF_STATUSBAR_ICONS, "1");
-                    switch (statusbar_icons) {
-                        case "1":
-                            handleOverlays("com.android.theme.icon_pack.filled.android", false);
-                            handleOverlays("com.android.theme.icon_pack.rounded.android", false);
-                            handleOverlays("com.android.theme.icon_pack.circular.android", false);
-                            break;
-                        case "2":
-                            handleOverlays("com.android.theme.icon_pack.filled.android", true);
-                            handleOverlays("com.android.theme.icon_pack.rounded.android", false);
-                            handleOverlays("com.android.theme.icon_pack.circular.android", false);
-                            break;
-                        case "3":
-                            handleOverlays("com.android.theme.icon_pack.filled.android", false);
-                            handleOverlays("com.android.theme.icon_pack.rounded.android", true);
-                            handleOverlays("com.android.theme.icon_pack.circular.android", false);
-                            break;
-                        case "4":
-                            handleOverlays("com.android.theme.icon_pack.filled.android", false);
-                            handleOverlays("com.android.theme.icon_pack.rounded.android", false);
-                            handleOverlays("com.android.theme.icon_pack.circular.android", true);
-                            break;
-                    }
-                    mStatusbarIcons.setSummary(mStatusbarIcons.getEntry());
+            if (key.equals(PREF_STATUSBAR_ICONS)) {
+                String statusbar_icons = sharedPreferences.getString(PREF_STATUSBAR_ICONS, "1");
+                switch (statusbar_icons) {
+                    case "1":
+                        handleOverlays("com.android.theme.icon_pack.filled.android", false, mOverlayManager);
+                        handleOverlays("com.android.theme.icon_pack.rounded.android", false, mOverlayManager);
+                        handleOverlays("com.android.theme.icon_pack.circular.android", false, mOverlayManager);
+                        break;
+                    case "2":
+                        handleOverlays("com.android.theme.icon_pack.filled.android", true, mOverlayManager);
+                        handleOverlays("com.android.theme.icon_pack.rounded.android", false, mOverlayManager);
+                        handleOverlays("com.android.theme.icon_pack.circular.android", false, mOverlayManager);
+                        break;
+                    case "3":
+                        handleOverlays("com.android.theme.icon_pack.filled.android", false, mOverlayManager);
+                        handleOverlays("com.android.theme.icon_pack.rounded.android", true, mOverlayManager);
+                        handleOverlays("com.android.theme.icon_pack.circular.android", false, mOverlayManager);
+                        break;
+                    case "4":
+                        handleOverlays("com.android.theme.icon_pack.filled.android", false, mOverlayManager);
+                        handleOverlays("com.android.theme.icon_pack.rounded.android", false, mOverlayManager);
+                        handleOverlays("com.android.theme.icon_pack.circular.android", true, mOverlayManager);
+                        break;
                 }
+                mStatusbarIcons.setSummary(mStatusbarIcons.getEntry());
+            }
 
-                if (key.equals(PREF_THEME_SWITCH)) {
-                    String theme_switch = sharedPreferences.getString(PREF_THEME_SWITCH, "1");
-                    switch (theme_switch) {
-                        case "1":
-                            handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_NO, ThemesUtils.PITCH_BLACK);
-                            handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_NO, ThemesUtils.SOLARIZED_DARK);
-                            break;
-                        case "2":
-                            handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                            handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                            break;
-                        case "3":
-                            handleBackgrounds(true, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                            handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                            break;
-                        case "4":
-                            handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK);
-                            handleBackgrounds(true, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK);
-                            break;
-                    }
-                    mThemeSwitch.setSummary(mThemeSwitch.getEntry());
+            if (key.equals(PREF_THEME_SWITCH)) {
+                String theme_switch = sharedPreferences.getString(PREF_THEME_SWITCH, "1");
+                switch (theme_switch) {
+                    case "1":
+                        handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_NO, ThemesUtils.PITCH_BLACK, mOverlayManager);
+                        handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_NO, ThemesUtils.SOLARIZED_DARK, mOverlayManager);
+                        break;
+                    case "2":
+                        handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK, mOverlayManager);
+                        handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK, mOverlayManager);
+                        break;
+                    case "3":
+                        handleBackgrounds(true, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK, mOverlayManager);
+                        handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK, mOverlayManager);
+                        break;
+                    case "4":
+                        handleBackgrounds(false, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.PITCH_BLACK, mOverlayManager);
+                        handleBackgrounds(true, mContext, UiModeManager.MODE_NIGHT_YES, ThemesUtils.SOLARIZED_DARK, mOverlayManager);
+                        break;
                 }
+                mThemeSwitch.setSummary(mThemeSwitch.getEntry());
+            }
 
-                if (key.equals(PREF_THEME_SCHEDULE)) {
-                    switch (getThemeSchedule()) {
-                        case "1":
-                            mThemeScheduledTheme.setVisible(false);
-                            sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_THEME_VALUE);
-                            sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_THEME);
-                            sharedPreferencesEditor.commit();
-                            mThemeScheduledTheme.setEnabled(true);
-                            scheduledTheme = false;
-                            break;
-                        case "2":
-                            if (scheduledTheme) {
-                                mThemeScheduledTheme.setEnabled(false);
-                                mThemeScheduledTheme.setTitle(getScheduledThemeSummary() + " " +
-                                        getString(R.string.theme_schedule_scheduled));
-                                mThemeScheduledTheme.setSummary("");
-                                scheduledTheme = false;
-                            } else {
-                                mThemeScheduledTheme.setEnabled(true);
-                                mThemeScheduledTheme.setTitle(getString(R.string.theme_schedule_theme_title));
-                                mThemeScheduledTheme.setSummary(getString(R.string.theme_schedule_theme_summary));
-                                scheduledTheme = true;
-                            }
-                                mThemeScheduledTheme.setVisible(true);
-                            break;
-                        case "3":
-                            mThemeScheduledTheme.setVisible(true);
-                           break;
-                    }
-                    mThemeSchedule.setSummary(mThemeSchedule.getEntry());
-                }
-
-                class ScheduledTheme extends AsyncTask<Void, Void, Void> {
-
-                    protected Void doInBackground(Void... param) {
-                        return null;
-                    }
-
-                    protected void onPostExecute(Void param) {
-                        showTimePicker();
-                    }
-
-                    @Override
-                    protected void onPreExecute() {
-                        super.onPreExecute();
-                        sharedPreferencesEditor.putString(PREF_THEME_SCHEDULED_THEME_VALUE, getScheduledTheme());
+            if (key.equals(PREF_THEME_SCHEDULE)) {
+                switch (getThemeSchedule()) {
+                    case "1":
+                        mThemeScheduledTheme.setVisible(false);
+                        sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_THEME_VALUE);
+                        sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_THEME);
                         sharedPreferencesEditor.commit();
-                    }
+                        mThemeScheduledTheme.setEnabled(true);
+                        scheduledTheme = false;
+                        break;
+                    case "2":
+                        if (scheduledTheme) {
+                            mThemeScheduledTheme.setEnabled(false);
+                            mThemeScheduledTheme.setTitle(getScheduledThemeSummary() + " " +
+                                    getString(R.string.theme_schedule_scheduled));
+                            mThemeScheduledTheme.setSummary("");
+                            scheduledTheme = false;
+                        } else {
+                            mThemeScheduledTheme.setEnabled(true);
+                            mThemeScheduledTheme.setTitle(getString(R.string.theme_schedule_theme_title));
+                            mThemeScheduledTheme.setSummary(getString(R.string.theme_schedule_theme_summary));
+                            scheduledTheme = true;
+                        }
+                        mThemeScheduledTheme.setVisible(true);
+                        break;
+                    case "3":
+                        mThemeScheduledTheme.setVisible(true);
+                        break;
+                }
+                mThemeSchedule.setSummary(mThemeSchedule.getEntry());
+            }
+
+            class ScheduledTheme extends AsyncTask<Void, Void, Void> {
+
+                protected Void doInBackground(Void... param) {
+                    return null;
                 }
 
-                if (key.equals(PREF_THEME_SCHEDULED_THEME) && getThemeSchedule() != "1") {
-                    if (getScheduledTheme() != null && getScheduledThemeValue() == null) {
-                        mThemeScheduledTheme.setSummary(mThemeScheduledTheme.getEntry());
-                        new ScheduledTheme().execute();
-                    } else {
-                        mThemeScheduledTheme.setValue(null);
-                        mThemeScheduledTheme.setSummary(null);
-                    }
+                protected void onPostExecute(Void param) {
+                    showTimePicker();
+                }
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    sharedPreferencesEditor.putString(PREF_THEME_SCHEDULED_THEME_VALUE, getScheduledTheme());
+                    sharedPreferencesEditor.commit();
+                }
+            }
+
+            if (key.equals(PREF_THEME_SCHEDULED_THEME) && getThemeSchedule() != "1") {
+                if (getScheduledTheme() != null && getScheduledThemeValue() == null) {
+                    mThemeScheduledTheme.setSummary(mThemeScheduledTheme.getEntry());
+                    new ScheduledTheme().execute();
+                } else {
+                    mThemeScheduledTheme.setValue(null);
+                    mThemeScheduledTheme.setSummary(null);
                 }
             }
         }
@@ -879,30 +879,6 @@ public class Themes extends PreferenceFragment implements ThemesListener {
                 mThemeScheduledTheme.setSummary("");
             }
         }, mDate.get(Calendar.HOUR_OF_DAY), mDate.get(Calendar.MINUTE), false).show();
-    }
-
-    protected void handleOverlays(String packagename, Boolean state) {
-        try {
-            mOverlayManager.setEnabled(packagename,
-                    state, USER_SYSTEM);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
-
-    protected void handleBackgrounds(Boolean state, Context context, int mode, String[] overlays) {
-        if (context != null) {
-            Objects.requireNonNull(context.getSystemService(UiModeManager.class))
-                    .setNightMode(mode);
-        }
-        for (int i = 0; i < overlays.length; i++) {
-            String background = overlays[i];
-            try {
-                mOverlayManager.setEnabled(background, state, USER_SYSTEM);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     @Override
