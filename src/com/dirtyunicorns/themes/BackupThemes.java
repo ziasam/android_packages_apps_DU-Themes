@@ -58,6 +58,7 @@ public class BackupThemes extends DialogFragment {
 
     private boolean mThemeName = false;
     private int mRelativeLayout;
+
     private Resources mResources;
     private ThemesListener mThemesListener;
     private Drawable mWallpaperDrawable;
@@ -73,6 +74,7 @@ public class BackupThemes extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mResources = getResources();
         WallpaperManager wallpaperManager = WallpaperManager.getInstance(getContext());
         mWallpaperDrawable = wallpaperManager.getDrawable();
@@ -84,14 +86,14 @@ public class BackupThemes extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(
+        final AlertDialog.Builder builder = new AlertDialog.Builder(
                 getActivity(), R.style.AccentDialogTheme);
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.themes_backup, null);
+        final View view = inflater.inflate(R.layout.themes_backup, null);
         ViewStub stub = (ViewStub) view.findViewById(R.id.themes_backup_preview);
         ImageView imgView = (ImageView) view.findViewById(R.id.wp_background);
-        EditText themeNameInput = (EditText) view.findViewById(R.id.themeName);
-        String backupDate = getString(R.string.theme_backup_edittext_hint) + mTimeStamp;
+        final EditText themeNameInput = (EditText) view.findViewById(R.id.themeName);
+        final String backupDate = getString(R.string.theme_backup_edittext_hint) + mTimeStamp;
         int maxLength = 20;
         themeNameInput.setHint(backupDate);
         themeNameInput.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength)});
@@ -105,7 +107,6 @@ public class BackupThemes extends DialogFragment {
         stub.inflate();
         builder.setTitle(R.string.theme_backup_title);
         builder.setView(view);
-
         builder.setNegativeButton(getString(android.R.string.cancel),
                     new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -133,7 +134,9 @@ public class BackupThemes extends DialogFragment {
             }
         });
 
-        return builder.create();
+        builder.create();
+
+        return builder.show();
     }
 
     @Override
