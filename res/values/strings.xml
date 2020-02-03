@@ -46,8 +46,9 @@
     <string name="font_type_12">OnePlus Slate</string>
     <string name="font_type_13">Rosemary</string>
     <string name="font_type_14">Samsung One</string>
-    <string name="font_type_15">Sony Sketch</string>
-    <string name="font_type_16">Surfer</string>
+    <string name="font_type_15">San Francisco</string>
+    <string name="font_type_16">Sony Sketch</string>
+    <string name="font_type_17">Surfer</string>
 
     <!-- Adaptive icon shapes -->
     <string name="adaptive_icon_shape_default">Default</string>

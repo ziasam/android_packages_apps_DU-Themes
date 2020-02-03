@@ -133,10 +133,12 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
             mFontPicker.setValue("13");
         } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.samsungone")) {
             mFontPicker.setValue("14");
-        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sonysketchsource")) {
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sanfrancisco")) {
             mFontPicker.setValue("15");
-        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.surfersource")) {
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sonysketchsource")) {
             mFontPicker.setValue("16");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.font.surfersource")) {
+            mFontPicker.setValue("17");
         } else {
             mFontPicker.setValue("1");
         }
@@ -225,6 +227,9 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
                 if (PixeldustUtils.isThemeEnabled("com.android.theme.font.samsungone")) {
                     handleOverlays("com.android.theme.font.samsungone", false);
                 }
+                if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sanfrancisco")) {
+                    handleOverlays("com.android.theme.font.sanfrancisco", false);
+                }
                 if (PixeldustUtils.isThemeEnabled("com.android.theme.font.sonysketchsource")) {
                     handleOverlays("com.android.theme.font.sonysketchsource", false);
                 }
@@ -282,9 +287,12 @@ public class Themes extends PreferenceFragment implements SharedPreferences.OnSh
                         handleOverlays("com.android.theme.font.samsungone", true);
                         break;
                     case "15":
-                        handleOverlays("com.android.theme.font.sonysketchsource", true);
+                        handleOverlays("com.android.theme.font.sanfrancisco", true);
                         break;
                     case "16":
+                        handleOverlays("com.android.theme.font.sonysketchsource", true);
+                        break;
+                    case "17":
                         handleOverlays("com.android.theme.font.surfersource", true);
                         break;
                 }
