@@ -42,10 +42,13 @@ import android.content.SharedPreferences;
 import android.content.om.IOverlayManager;
 import android.content.pm.PackageManager;
 import android.os.RemoteException;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.widget.Button;
 
 import androidx.preference.PreferenceManager;
+
+import com.android.internal.util.pixeldust.ThemesUtils;
 
 import com.pixeldust.themes.R;
 import com.pixeldust.themes.receivers.ThemesEndReceiver;
@@ -184,12 +187,12 @@ public class Utils {
                 .getBoolean(PREF_THEME_SCHEDULED_REPEAT_DAILY, false)) {
             if (mAlarmMgr != null) {
                 mAlarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, getEndTime(context),
-                    mEndPendingIntent);
+                        mEndPendingIntent);
             }
         } else {
             if (mAlarmMgr != null) {
                 mAlarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, getEndTime(context),
-                    AlarmManager.INTERVAL_DAY, mEndPendingIntent);
+                        AlarmManager.INTERVAL_DAY, mEndPendingIntent);
             }
         }
     }
@@ -202,12 +205,12 @@ public class Utils {
                 .getBoolean(PREF_THEME_SCHEDULED_REPEAT_DAILY, false)) {
             if (mAlarmMgr != null) {
                 mAlarmMgr.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, getStartTime(context),
-                    mStartPendingIntent);
+                        mStartPendingIntent);
             }
         } else {
             if (mAlarmMgr != null) {
                 mAlarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, getStartTime(context),
-                    AlarmManager.INTERVAL_DAY, mStartPendingIntent);
+                        AlarmManager.INTERVAL_DAY, mStartPendingIntent);
             }
         }
     }
@@ -256,5 +259,16 @@ public class Utils {
         assert am != null;
         am.cancel(endPendingIntent);
         am.cancel(startPendingIntent);
+    }
+
+    public static boolean threeButtonNavbarEnabled(Context context) {
+        boolean defaultToNavigationBar = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+        boolean navigationBar = Settings.System.getInt(context.getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR, defaultToNavigationBar ? 1 : 0) == 1;
+        boolean hasNavbar = false;
+        hasNavbar = com.android.internal.util.pixeldust.PixeldustUtils.isThemeEnabled(
+                "com.android.internal.systemui.navbar.threebutton") && navigationBar;
+        return hasNavbar;
     }
 }
