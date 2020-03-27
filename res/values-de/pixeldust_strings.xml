@@ -64,6 +64,7 @@
     <string name="theme_type_google_dark">Dunkel</string>
     <string name="theme_type_pitch_black">Pechschwarz</string>
     <string name="theme_type_solarized_dark">Solarisiertes Dunkel</string>
+    <string name="theme_type_choco_x">Schwarzer Kaffee</string>
     <string name="theme_other_category_title">Weiteres</string>
     <string name="theme_backup_title">Aktuellen UI-Stil sichern</string>
     <string name="theme_backup_summary">Sichere die aktuelle Konfiguration</string>
