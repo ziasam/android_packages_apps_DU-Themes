@@ -71,6 +71,7 @@ public class Themes extends PreferenceFragment implements ThemesListener {
     private static final String PREF_WP_PREVIEW = "wp_preview";
     private static final String PREF_THEME_SCHEDULE = "theme_schedule";
     private static final String PREF_THEME_ACCENT_PICKER = "theme_accent_picker";
+    private static final String PREF_QS_HEADER_STYLE = "qs_header_style";
     public static final String PREF_THEME_ACCENT_COLOR = "theme_accent_color";
     public static final String PREF_ADAPTIVE_ICON_SHAPE = "adapative_icon_shape";
     public static final String PREF_FONT_PICKER = "font_picker";
@@ -91,6 +92,7 @@ public class Themes extends PreferenceFragment implements ThemesListener {
     private ListPreference mFontPicker;
     private ListPreference mStatusbarIcons;
     private ListPreference mThemeSwitch;
+    private ListPreference mQsHeaderStyle;
     private Preference mAccentPicker;
     private Preference mBackupThemes;
     private Preference mRestoreThemes;
@@ -274,6 +276,16 @@ public class Themes extends PreferenceFragment implements ThemesListener {
         }
         mStatusbarIcons.setSummary(mStatusbarIcons.getEntry());
 
+        // Statusbar icons
+        mQsHeaderStyle = (ListPreference) findPreference(PREF_QS_HEADER_STYLE);
+        int qsStyleValue = getOverlayPosition(ThemesUtils.QS_HEADER_THEMES);
+        if (qsStyleValue != -1) {
+            mQsHeaderStyle.setValue(String.valueOf(qsStyleValue + 2));
+        } else {
+            mQsHeaderStyle.setValue("1");
+        }
+        mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntry());
+
         updateThemeScheduleSummary();
         setWallpaperPreview();
         updateBackupPref();
@@ -401,6 +413,20 @@ public class Themes extends PreferenceFragment implements ThemesListener {
                             true, mOverlayManager);
                 }
                 mStatusbarIcons.setSummary(mStatusbarIcons.getEntry());
+            }
+
+            if (key.equals(PREF_QS_HEADER_STYLE)) {
+                String qsHeaderStyle = sharedPreferences.getString(PREF_QS_HEADER_STYLE, "1");
+                String overlayName = getOverlayName(ThemesUtils.QS_HEADER_THEMES);
+                int qsHeaderStyleValue = Integer.parseInt(qsHeaderStyle);
+                if (overlayName != null) {
+                    handleOverlays(overlayName, false, mOverlayManager);
+                }
+                if (qsHeaderStyleValue > 1) {
+                    handleOverlays(ThemesUtils.QS_HEADER_THEMES[qsHeaderStyleValue - 2],
+                            true, mOverlayManager);
+                }
+                mQsHeaderStyle.setSummary(mQsHeaderStyle.getEntry());
             }
 
             if (key.equals(PREF_THEME_SWITCH)) {
