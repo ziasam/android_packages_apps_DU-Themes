@@ -225,18 +225,17 @@ public class Themes extends PreferenceFragment implements ThemesListener {
 
         // Themes
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
-        if (PixeldustUtils.isThemeEnabled("com.android.theme.chocox.system")) {
+        // First of all we have to evaluate whether the light or dark mode is active
+        if (mUiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_NO) {
+            mThemeSwitch.setValue("1");
+        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.chocox.system")) {
             mThemeSwitch.setValue("5");
         } else if (PixeldustUtils.isThemeEnabled("com.android.theme.solarizeddark.system")) {
             mThemeSwitch.setValue("4");
         } else if (PixeldustUtils.isThemeEnabled("com.android.theme.pitchblack.system")) {
             mThemeSwitch.setValue("3");
-        } else if (mUiModeManager != null) {
-            if (mUiModeManager.getNightMode() == UiModeManager.MODE_NIGHT_YES) {
-                mThemeSwitch.setValue("2");
-            } else {
-                mThemeSwitch.setValue("1");
-            }
+        } else { // Google dark theme
+            mThemeSwitch.setValue("2");
         }
         mThemeSwitch.setSummary(mThemeSwitch.getEntry());
 
