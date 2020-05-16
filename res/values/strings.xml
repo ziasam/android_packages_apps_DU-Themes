@@ -72,6 +72,17 @@
     <string name="statusbar_icons_title">Statusbar/QS icons</string>
     <string name="statusbar_icons_dialog_title">Select statusbar icon set</string>
 
+    <!-- Switch styles -->
+    <string name="switch_style_title">Switch style</string>
+    <string name="switch_default">Default</string>
+    <string name="switch_md2">Material Design 2</string>
+    <string name="switch_oneplus">OnePlus</string>
+    <string name="switch_tg">Telegram</string>
+    <string name="switch_narrow">Narrow</string>
+    <string name="switch_contained">Contained</string>
+    <string name="switch_retro">Retro</string>
+    <string name="switch_style_dialog_title">Select switch style set</string>
+
     <!-- Accents -->
     <string name="accent_colors_space">Space</string>
     <string name="accent_colors_purple">Purple</string>
@@ -225,4 +236,3 @@
     <string name="qstile_poke_sign">Poke Sign</string>
     <string name="qstile_wavey">Wavey</string>
 </resources>
-
