@@ -175,6 +175,7 @@
         <item>@string/theme_type_baked_green</item>
         <item>@string/theme_type_dark_grey</item>
         <item>@string/theme_type_material_ocean</item>
+        <item>@string/theme_type_transparent_clear</item>
     </string-array>
 
     <string-array name="theme_type_values">
@@ -186,6 +187,7 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
     </string-array>
 
     <!-- Themes schedule -->
@@ -208,6 +210,7 @@
         <item>@string/theme_type_baked_green</item>
         <item>@string/theme_type_dark_grey</item>
         <item>@string/theme_type_material_ocean</item>
+        <item>@string/theme_type_transparent_clear</item>
     </string-array>
 
     <string-array name="theme_scheduled_values">
@@ -219,6 +222,7 @@
         <item>6</item>
         <item>7</item>
         <item>8</item>
+        <item>9</item>
     </string-array>
 
 
