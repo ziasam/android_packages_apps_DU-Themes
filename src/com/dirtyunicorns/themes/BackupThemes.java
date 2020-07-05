@@ -292,6 +292,7 @@ public class BackupThemes extends DialogFragment {
 
     private boolean isThemeNameExist(String themeName) {
         List<ThemeDbUtils> themeDatabaseList = mThemeDatabase.getAllThemeDbUtils();
+        mThemeNameExist = false;
         for (ThemeDbUtils name : themeDatabaseList) {
             String str = name.getThemeName();
             if (str.equals(themeName)) {
