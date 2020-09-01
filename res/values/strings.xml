@@ -53,7 +53,8 @@
     <string name="font_type_16" translatable="false">Samsung One</string>
     <string name="font_type_17" translatable="false">San Francisco</string>
     <string name="font_type_18" translatable="false">Sony Sketch</string>
-    <string name="font_type_19" translatable="false">Surfer</string>
+    <string name="font_type_19" translatable="false">Summer Dream</string>
+    <string name="font_type_20" translatable="false">Surfer</string>
 
     <!-- Adaptive icon shapes -->
     <string name="adaptive_icon_shape_default">Default</string>
