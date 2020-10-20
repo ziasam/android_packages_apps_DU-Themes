@@ -27,6 +27,4 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 
 include frameworks/base/packages/SettingsLib/common.mk
 
-include vendor/kangos/support/common.mk
-
 include $(BUILD_PACKAGE)
