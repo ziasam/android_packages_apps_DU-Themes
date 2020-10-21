@@ -33,20 +33,16 @@ import android.app.FragmentManager;
 import android.app.UiModeManager;
 import android.app.WallpaperManager;
 import android.content.Context;
-import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.om.IOverlayManager;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.graphics.drawable.Drawable;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -59,7 +55,6 @@ import androidx.preference.PreferenceManager;
 
 import com.android.internal.util.du.ThemesUtils;
 import com.android.internal.util.du.Utils;
-import com.dirtyunicorns.support.colorpicker.ColorPickerPreference;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -80,9 +75,6 @@ public class Themes extends PreferenceFragment {
     public static final String PREF_STATUSBAR_ICONS = "statusbar_icons";
     public static final String PREF_THEME_SWITCH = "theme_switch";
 
-    private static final String ACCENT_COLOR = "accent_color";
-    static final int DEFAULT_ACCENT_COLOR = 0xff1a73e8;
-
     private static boolean mUseSharedPrefListener;
 
     private Context mContext;
@@ -99,7 +91,6 @@ public class Themes extends PreferenceFragment {
     private ListPreference mQsTileStyle;
     private Preference mThemeSchedule;
     private Preference mWpPreview;
-    private ColorPickerPreference mAccentColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -249,36 +240,6 @@ public class Themes extends PreferenceFragment {
 
         updateThemeScheduleSummary();
         setWallpaperPreview();
-
-        mAccentColor = (ColorPickerPreference) findPreference(ACCENT_COLOR);
-        int intColor = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
-        String hexColor = String.format("#%08x", (0xff1a73e8 & intColor));
-        if (hexColor.equals("#ff1a73e8")) {
-            mAccentColor.setSummary(R.string.theme_picker_default);
-        } else {
-            mAccentColor.setSummary(hexColor);
-        }
-        mAccentColor.setNewPreviewColor(intColor);
-        mAccentColor.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                if (preference == mAccentColor) {
-                    String hex = ColorPickerPreference.convertToARGB(
-                            Integer.valueOf(String.valueOf(newValue)));
-                    if (hex.equals("#ff1a73e8")) {
-                    mAccentColor.setSummary(R.string.theme_picker_default);
-                    } else {
-                    mAccentColor.setSummary(hex);
-                    }
-                    int intHex = ColorPickerPreference.convertToColorInt(hex);
-                    Settings.System.putIntForUser(getContext().getContentResolver(),
-                    Settings.System.ACCENT_COLOR, intHex, UserHandle.USER_CURRENT);
-                    return true;
-                }
-                return false;
-            }
-       });
     }
 
     private void setWallpaperPreview() {

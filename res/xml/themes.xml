@@ -19,11 +19,6 @@
         android:key="wp_preview"
         android:enabled="false" />
 
-    <com.dirtyunicorns.support.colorpicker.ColorPickerPreference
-        android:key="accent_color"
-        android:title="@string/accent_color"
-        android:persistent="false"/>
-
     <ListPreference
         android:key="font_picker"
         android:title="@string/font_type_title"
