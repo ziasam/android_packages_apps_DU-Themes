@@ -25,17 +25,6 @@
         android:summary="@string/accent_color_summary"
         android:persistent="false"/>
 
-    <Preference
-<<<<<<< HEAD
-        android:key="theme_accent_picker"
-        android:title="@string/theme_accent_picker_title"
-        android:summary="@string/theme_accent_picker_summary" />
-=======
-        android:key="theme_navbar_picker"
-        android:title="@string/theme_navbar_picker_title"
-        android:summary="@string/theme_navbar_picker_summary" />
->>>>>>> c2a0a46... Remove backup restore
-
     <ListPreference
         android:key="font_picker"
         android:title="@string/font_type_title"

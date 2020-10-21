@@ -96,11 +96,7 @@ public class Themes extends PreferenceFragment {
     private ListPreference mThemeSwitch;
     private ListPreference mQsHeaderStyle;
     private ListPreference mSwitchStyle;
-<<<<<<< HEAD
-=======
     private ListPreference mQsTileStyle;
-    private Preference mNavbarPicker;
->>>>>>> 1105f4a... DUThemes: Introduce QS tile style picker [3/3]
     private Preference mThemeSchedule;
     private Preference mWpPreview;
     private ColorPickerPreference mAccentColor;
