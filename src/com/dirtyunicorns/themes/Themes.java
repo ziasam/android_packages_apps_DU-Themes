@@ -33,6 +33,7 @@ import android.app.FragmentManager;
 import android.app.UiModeManager;
 import android.app.WallpaperManager;
 import android.content.Context;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.om.IOverlayManager;
@@ -41,6 +42,7 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.view.Menu;
@@ -52,12 +54,15 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
+import androidx.preference.PreferenceScreen;
 
 import com.android.internal.util.du.ThemesUtils;
 import com.android.internal.util.du.Utils;
 
 import java.util.Calendar;
 import java.util.Objects;
+
+import android.provider.Settings;
 
 import static com.dirtyunicorns.themes.utils.Utils.isLiveWallpaper;
 
@@ -99,6 +104,7 @@ public class Themes extends PreferenceFragment {
         addPreferencesFromResource(R.xml.themes);
 
         mContext = getActivity();
+        PreferenceScreen prefSet = getPreferenceScreen();
 
         ActionBar actionBar = getActivity().getActionBar();
         if (actionBar != null) {
@@ -107,14 +113,13 @@ public class Themes extends PreferenceFragment {
 
         setHasOptionsMenu(true);
 
-        mUiModeManager = getContext().getSystemService(UiModeManager.class);
 
         // Shared preferences
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
         mSharedPreferences.registerOnSharedPreferenceChangeListener(mSharedPrefListener);
 
         // Theme services
-        UiModeManager mUiModeManager = mContext.getSystemService(UiModeManager.class);
+        mUiModeManager = getContext().getSystemService(UiModeManager.class);
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
 

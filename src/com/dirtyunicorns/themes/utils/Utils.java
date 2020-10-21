@@ -42,10 +42,13 @@ import android.content.SharedPreferences;
 import android.content.om.IOverlayManager;
 import android.content.pm.PackageManager;
 import android.os.RemoteException;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.widget.Button;
 
 import androidx.preference.PreferenceManager;
+
+import com.android.internal.util.du.ThemesUtils;
 
 import com.dirtyunicorns.themes.R;
 import com.dirtyunicorns.themes.receivers.ThemesEndReceiver;

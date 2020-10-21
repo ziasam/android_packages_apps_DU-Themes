@@ -22,6 +22,8 @@ LOCAL_AAPT_FLAGS := \
     --extra-packages androidx.preference_preference \
     --extra-packages androidx.recyclerview_recyclerview
 
+LOCAL_STATIC_ANDROID_LIBRARIES := \
+    VendorSupportLib
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx.appcompat_appcompat \
@@ -32,5 +34,5 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx.recyclerview_recyclerview
 
 include frameworks/base/packages/SettingsLib/common.mk
-
+include vendor/kangos/support/common.mk
 include $(BUILD_PACKAGE)
