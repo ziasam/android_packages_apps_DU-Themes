@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.themes;
+package com.pixeldust.themes;
 
-import static com.dirtyunicorns.themes.utils.Utils.setForegroundDrawable;
+import static com.pixeldust.themes.utils.Utils.setForegroundDrawable;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

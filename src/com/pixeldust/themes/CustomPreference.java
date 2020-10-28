@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.themes;
+package com.pixeldust.themes;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.themes.utils;
+package com.pixeldust.themes.utils;
 
 import static android.content.Context.ALARM_SERVICE;
 import static android.os.UserHandle.USER_SYSTEM;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULE;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME_VALUE;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_TIME;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_REPEAT_DAILY;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME_VALUE;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_TIME;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_ALARM_START_TIME;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_ALARM_END_TIME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULE;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME_VALUE;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_TIME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_REPEAT_DAILY;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME_VALUE;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_TIME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_ALARM_START_TIME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_ALARM_END_TIME;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -47,9 +47,9 @@ import android.widget.Button;
 
 import androidx.preference.PreferenceManager;
 
-import com.dirtyunicorns.themes.R;
-import com.dirtyunicorns.themes.receivers.ThemesEndReceiver;
-import com.dirtyunicorns.themes.receivers.ThemesStartReceiver;
+import com.pixeldust.themes.R;
+import com.pixeldust.themes.receivers.ThemesEndReceiver;
+import com.pixeldust.themes.receivers.ThemesStartReceiver;
 
 import java.util.Calendar;
 import java.util.Objects;

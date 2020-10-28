@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.themes;
+package com.pixeldust.themes;
 
 import static android.os.UserHandle.USER_SYSTEM;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeSummary;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeTime;
-import static com.dirtyunicorns.themes.utils.Utils.getThemeSchedule;
-import static com.dirtyunicorns.themes.utils.Utils.handleBackgrounds;
-import static com.dirtyunicorns.themes.utils.Utils.handleOverlays;
-import static com.dirtyunicorns.themes.utils.Utils.isLiveWallpaper;
+import static com.pixeldust.themes.utils.Utils.getScheduledStartThemeSummary;
+import static com.pixeldust.themes.utils.Utils.getScheduledStartThemeTime;
+import static com.pixeldust.themes.utils.Utils.getThemeSchedule;
+import static com.pixeldust.themes.utils.Utils.handleBackgrounds;
+import static com.pixeldust.themes.utils.Utils.handleOverlays;
+import static com.pixeldust.themes.utils.Utils.isLiveWallpaper;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -56,7 +56,7 @@ import androidx.preference.PreferenceManager;
 import com.android.internal.util.pixeldust.PixeldustUtils;
 import com.android.internal.util.pixeldust.ThemesUtils;
 
-import com.dirtyunicorns.themes.db.ThemeDatabase;
+import com.pixeldust.themes.db.ThemeDatabase;
 
 import java.util.Calendar;
 

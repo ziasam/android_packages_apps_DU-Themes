@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.themes.utils;
+package com.pixeldust.themes.utils;
 
 public class ThemesListItem {
 

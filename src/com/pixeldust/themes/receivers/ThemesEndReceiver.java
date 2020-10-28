@@ -14,13 +14,23 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.themes.receivers;
+package com.pixeldust.themes.receivers;
 
 import static android.os.UserHandle.USER_SYSTEM;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME_VALUE;
-import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_TOAST;
-import static com.dirtyunicorns.themes.utils.Utils.handleBackgrounds;
-import static com.dirtyunicorns.themes.utils.Utils.setStartAlarm;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_ALARM_END_TIME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_ALARM_START_TIME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULE;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME_VALUE;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_TIME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_REPEAT_DAILY;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME_VALUE;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_TIME;
+import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_TOAST;
+import static com.pixeldust.themes.utils.Utils.clearAlarms;
+import static com.pixeldust.themes.utils.Utils.handleBackgrounds;
+import static com.pixeldust.themes.utils.Utils.setEndAlarm;
 
 import android.app.UiModeManager;
 import android.content.BroadcastReceiver;
@@ -34,9 +44,9 @@ import android.widget.Toast;
 import androidx.preference.PreferenceManager;
 
 import com.android.internal.util.pixeldust.ThemesUtils;
-import com.dirtyunicorns.themes.R;
+import com.pixeldust.themes.R;
 
-public class ThemesStartReceiver extends BroadcastReceiver {
+public class ThemesEndReceiver extends BroadcastReceiver {
 
     private IOverlayManager mOverlayManager;
     private SharedPreferences mSharedPreferences;
@@ -48,12 +58,13 @@ public class ThemesStartReceiver extends BroadcastReceiver {
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String scheduledStartThemeValue = mSharedPreferences.getString(PREF_THEME_SCHEDULED_START_THEME_VALUE, null);
+        String scheduledEndThemeValue = mSharedPreferences.getString(PREF_THEME_SCHEDULED_END_THEME_VALUE, null);
+        SharedPreferences.Editor sharedPreferencesEditor = mSharedPreferences.edit();
 
-        if ("android.intent.action.BOOT_COMPLETED".equals(intent.getAction()) && scheduledStartThemeValue != null) {
-            setStartAlarm(context);
-        } else if (scheduledStartThemeValue != null) {
-            switch (scheduledStartThemeValue) {
+        if ("android.intent.action.BOOT_COMPLETED".equals(intent.getAction()) && scheduledEndThemeValue != null) {
+            setEndAlarm(context);
+        } else if (scheduledEndThemeValue != null) {
+            switch (scheduledEndThemeValue) {
                 case "1":
                     handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.PITCH_BLACK, mOverlayManager);
                     handleBackgrounds(false, context, UiModeManager.MODE_NIGHT_NO, ThemesUtils.SOLARIZED_DARK, mOverlayManager);
@@ -90,6 +101,21 @@ public class ThemesStartReceiver extends BroadcastReceiver {
                                 + context.getString(R.string.theme_schedule_applied), Toast.LENGTH_SHORT).show();
                     }
                     break;
+            }
+            if (!PreferenceManager.getDefaultSharedPreferences(context)
+                    .getBoolean(PREF_THEME_SCHEDULED_REPEAT_DAILY, false)) {
+                sharedPreferencesEditor.putString(PREF_THEME_SCHEDULE, "1");
+                sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_START_THEME_VALUE);
+                sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_START_THEME);
+                sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_START_TIME);
+                sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_END_THEME_VALUE);
+                sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_END_THEME);
+                sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_END_TIME);
+                sharedPreferencesEditor.remove(PREF_THEME_SCHEDULED_REPEAT_DAILY);
+                sharedPreferencesEditor.remove(PREF_ALARM_START_TIME);
+                sharedPreferencesEditor.remove(PREF_ALARM_END_TIME);
+                sharedPreferencesEditor.apply();
+                clearAlarms(context);
             }
         }
     }

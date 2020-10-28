@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.themes;
+package com.pixeldust.themes;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -41,7 +41,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.dirtyunicorns.themes.utils.ThemesListItem;
+import com.pixeldust.themes.utils.ThemesListItem;
 
 import java.io.File;
 import java.util.List;

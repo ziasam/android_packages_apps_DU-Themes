@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.themes;
+package com.pixeldust.themes;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -41,8 +41,8 @@ import android.widget.Toast;
 
 import androidx.preference.PreferenceManager;
 
-import com.dirtyunicorns.themes.db.ThemeDatabase;
-import com.dirtyunicorns.themes.utils.ThemeDbUtils;
+import com.pixeldust.themes.db.ThemeDatabase;
+import com.pixeldust.themes.utils.ThemeDbUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

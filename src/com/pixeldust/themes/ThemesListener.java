@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The Dirty Unicorns Project
+ * Copyright (C) 2020 The Dirty Unicorns Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,12 @@
  * limitations under the License.
  */
 
-package com.dirtyunicorns.themes;
+package com.pixeldust.themes;
 
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
+import android.app.DialogFragment;
 
-public class MainActivity extends PreferenceActivity {
+public interface ThemesListener {
 
-    @Override
-    public void onCreate(final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCloseBackupDialog(DialogFragment dialog);
 
-        getFragmentManager().beginTransaction().replace(android.R.id.content,
-                new Themes()).commit();
-    }
 }
