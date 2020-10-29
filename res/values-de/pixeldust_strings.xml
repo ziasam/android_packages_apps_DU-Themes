@@ -104,5 +104,9 @@
     <string name="theme_schedule_toasts_title">Toast-Nachrichten anzeigen</string>
     <string name="theme_schedule_toasts_summary">Immer wenn ein geplanter UI-Stil aktiviert wird, erscheint eine Toast-Nachricht</string>
 
+    <!-- Clock style -->
+    <string name="clock_style_title">Sperrbildschirmuhr</string>
+    <string name="clock_style_summary">Stil für Sperrbildschirmuhr wählen</string>
+
 </resources>
 

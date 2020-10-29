@@ -46,6 +46,16 @@
         android:entries="@array/statusbar_icons_titles"
         android:entryValues="@array/statusbar_icons_values" />
 
+    <Preference
+        android:key="clock_style"
+        android:title="@string/clock_style_title"
+        android:summary="@string/clock_style_summary">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.android.wallpaper"
+            android:targetClass="com.android.customization.picker.LockClockPickerActivity" />
+    </Preference>
+
     <PreferenceCategory
         android:title="System theme" >
 
