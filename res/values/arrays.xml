@@ -171,6 +171,7 @@
         <item>@string/accent_colors_sand</item>
         <item>@string/accent_colors_tangerine</item>
         <item>@string/accent_colors_amber</item>
+        <item>@string/accent_colors_azureradiance</item>
         <item>@string/accent_colors_blue</item>
         <item>@string/accent_colors_bluegrey</item>
         <item>@string/accent_colors_brown</item>
@@ -223,6 +224,7 @@
         <item>sandAccent</item>
         <item>tangerineAccent</item>
         <item>amberAccent</item>
+        <item>azureradianceAccent</item>
         <item>blueAccent</item>
         <item>blueGreyAccent</item>
         <item>brownAccent</item>
