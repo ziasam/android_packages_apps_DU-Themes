@@ -40,12 +40,16 @@
 
     <!-- Adaptive icon shapes -->
     <string name="adaptive_icon_shape_default">Standard</string>
+    <string name="adaptive_icon_shape_pebble">Kieselstein</string>
+    <string name="adaptive_icon_shape_vessel">Gefäß</string>
+    <string name="adaptive_icon_shape_taperedrect">Konisches Rechteck</string>
     <string name="adaptive_icon_shape_teardrop">Tränenform</string>
     <string name="adaptive_icon_shape_squircle">Superellipse</string>
     <string name="adaptive_icon_shape_roundedrect">Abgerundetes Rechteck</string>
-    <string name="adaptive_icon_shape_cylinder">Zylinder</string>
-    <string name="adaptive_icon_shape_hexagon">Sechseck</string>
     <string name="adaptive_icon_shape_square">Rechteck</string>
+    <string name="adaptive_icon_shape_hexagon">Sechseck</string>
+    <string name="adaptive_icon_shape_cylinder">Zylinder</string>
+    <string name="adaptive_icon_shape_heart">Herz</string>
     <string name="adaptive_icon_shape_title">Symbolform</string>
     <string name="adaptive_icon_shape_dialog_title">Symbolform wählen</string>
 
