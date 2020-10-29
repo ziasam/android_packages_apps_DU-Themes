@@ -91,5 +91,77 @@
         android:background="@drawable/accent_picker_circle"
         android:backgroundTint="#FFAF6050" />
 
+    <Button
+        android:id="@+id/amethystAccent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/accent_picker_circle"
+        android:backgroundTint="#A03EFF" />
+
+    <Button
+        android:id="@+id/aquamarineAccent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/accent_picker_circle"
+        android:backgroundTint="#23847D" />
+
+    <Button
+        android:id="@+id/carbonAccent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/accent_picker_circle"
+        android:backgroundTint="#434E58" />
+
+    <Button
+        android:id="@+id/paletteAccent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/accent_picker_circle"
+        android:backgroundTint="#c01668" />
+
+    <Button
+        android:id="@+id/sandAccent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/accent_picker_circle"
+        android:backgroundTint="#795548" />
+
+    <Button
+        android:id="@+id/tangerineAccent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_columnWeight="1"
+        android:gravity="center"
+        android:layout_gravity="fill_horizontal"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/accent_picker_circle"
+        android:backgroundTint="#C85125" />
+
 </LinearLayout>
 

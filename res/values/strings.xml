@@ -89,6 +89,12 @@
     <string name="accent_colors_ocean">Ocean</string>
     <string name="accent_colors_green">Green</string>
     <string name="accent_colors_cinnamon">Cinnamon</string>
+    <string name="accent_colors_amethyst">Amethyst</string>
+    <string name="accent_colors_aquamarine">Aquamarine</string>
+    <string name="accent_colors_carbon">Carbon</string>
+    <string name="accent_colors_palette">Palette</string>
+    <string name="accent_colors_sand">Sand</string>
+    <string name="accent_colors_tangerine">Tangerine</string>
     <string name="accent_colors_amber">Amber</string>
     <string name="accent_colors_blue">Blue</string>
     <string name="accent_colors_bluegrey">Blue Grey</string>

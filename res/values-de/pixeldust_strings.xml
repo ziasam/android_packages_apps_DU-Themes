@@ -61,6 +61,56 @@
     <string name="statusbar_icons_title">Statusleiste/Schnellkacheln</string>
     <string name="statusbar_icons_dialog_title">Symbolsatz für Statusleiste wählen</string>
 
+    <!-- Accents -->
+    <string name="accent_colors_space">Weltall</string>
+    <string name="accent_colors_purple">Lila</string>
+    <string name="accent_colors_orchid">Orchidee</string>
+    <string name="accent_colors_ocean">Ozean</string>
+    <string name="accent_colors_green">Grün</string>
+    <string name="accent_colors_cinnamon">Zimt</string>
+    <string name="accent_colors_amethyst">Amethyst</string>
+    <string name="accent_colors_aquamarine">Aquamarin</string>
+    <string name="accent_colors_carbon">Carbon</string>
+    <string name="accent_colors_palette">Palette</string>
+    <string name="accent_colors_sand">Sand</string>
+    <string name="accent_colors_tangerine">Tangerine</string>
+    <string name="accent_colors_amber">Bernstein</string>
+    <string name="accent_colors_blue">Blau</string>
+    <string name="accent_colors_bluegrey">Blaugrau</string>
+    <string name="accent_colors_brown">Braun</string>
+    <string name="accent_colors_cyan">Cyan</string>
+    <string name="accent_colors_deeporange">Dunkelorange</string>
+    <string name="accent_colors_deeppurple">Dunkellila</string>
+    <string name="accent_colors_grey">Grau</string>
+    <string name="accent_colors_indigo">Indigo</string>
+    <string name="accent_colors_lightblue">Hellblau</string>
+    <string name="accent_colors_lightgreen">Hellgrün</string>
+    <string name="accent_colors_lime">Limette</string>
+    <string name="accent_colors_orange">Orange</string>
+    <string name="accent_colors_pink">Pink</string>
+    <string name="accent_colors_red">Rot</string>
+    <string name="accent_colors_teal">Blaugrün</string>
+    <string name="accent_colors_yellow">Gelb</string>
+    <string name="accent_colors_androidonegreen">AndroidOneGrün</string>
+    <string name="accent_colors_cocacolared">CocaColaRot</string>
+    <string name="accent_colors_discordpurple">DiscordLila</string>
+    <string name="accent_colors_facebookblue">FacebookBlau</string>
+    <string name="accent_colors_instagramcerise">InstagramKirschrot</string>
+    <string name="accent_colors_jollibeecrimson">JollibeePurpur</string>
+    <string name="accent_colors_monsterenergygreen">MonsterEnergyGrün</string>
+    <string name="accent_colors_nextbitmint">NextbitMinze</string>
+    <string name="accent_colors_oneplusred">OneplusRot</string>
+    <string name="accent_colors_pepsiblue">PepsiBlau</string>
+    <string name="accent_colors_pocophoneyellow">PocophoneGelb</string>
+    <string name="accent_colors_razergreen">RazerGrün</string>
+    <string name="accent_colors_samsungblue">SamsungBlau</string>
+    <string name="accent_colors_spotifygreen">SpotifyGrün</string>
+    <string name="accent_colors_starbucksgreen">StarbucksGrün</string>
+    <string name="accent_colors_twitchpurple">TwitchLila</string>
+    <string name="accent_colors_twitterblue">TwitterBlau</string>
+    <string name="accent_colors_xboxgreen">XboxGrün</string>
+    <string name="accent_colors_xiaomiorange">XiaomiOrange</string>
+
     <!-- Themes -->
     <string name="theme_type_title">UI-Stil</string>
     <string name="theme_type_summary">Farbstil wählen</string>
