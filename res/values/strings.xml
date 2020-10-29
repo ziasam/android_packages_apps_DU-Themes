@@ -76,6 +76,9 @@
     <string name="statusbar_icons_filled">Filled</string>
     <string name="statusbar_icons_rounded">Rounded</string>
     <string name="statusbar_icons_circular">Circular</string>
+    <string name="statusbar_icons_kai" translatable="false">Kai</string>
+    <string name="statusbar_icons_sam" translatable="false">Sam</string>
+    <string name="statusbar_icons_victor" translatable="false">Victor</string>
     <string name="statusbar_icons_title">Statusbar/QS icons</string>
     <string name="statusbar_icons_dialog_title">Select statusbar icon set</string>
 
