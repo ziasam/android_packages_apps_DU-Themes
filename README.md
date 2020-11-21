@@ -1,7 +1,7 @@
-DU Themes
+Themes
 ==============
 
-Something, Something, Something, Dark Side
+A fabulous themes app developed by DU, forked and adapted according to our wishes.
 
 ## License
 
