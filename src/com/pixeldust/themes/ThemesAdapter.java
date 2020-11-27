@@ -413,51 +413,60 @@ public class ThemesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Amarante.ttf");
                 break;
             case 4:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Bariol.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/ArbutusSlab-Regular.ttf");
                 break;
             case 5:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Cagliostro.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Lato-Regular.ttf");
                 break;
             case 6:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/ComicSans.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Bariol.ttf");
                 break;
             case 7:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/CoolStory.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Cagliostro.ttf");
                 break;
             case 8:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/FiraSans.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/ComicSans.ttf");
                 break;
             case 9:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/GoogleSans.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/CoolStory.ttf");
                 break;
             case 10:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/GoogleSans-Medium.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/FiraSans.ttf");
                 break;
             case 11:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/LGSmartGothic.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/GoogleSans.ttf");
                 break;
             case 12:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Linotte.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/GoogleSans-Medium.ttf");
                 break;
             case 13:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SlateFromOP.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/LGSmartGothic.ttf");
                 break;
             case 14:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Rosemary.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Linotte.ttf");
                 break;
             case 15:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SamsungOne.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SlateFromOP.ttf");
                 break;
             case 16:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SanFrancisco.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Rosemary.ttf");
                 break;
             case 17:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SonySketch.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Rubik-Regular.ttf");
                 break;
             case 18:
-                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SummerDream.ttf");
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SamsungOne.ttf");
                 break;
             case 19:
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SanFrancisco.ttf");
+                break;
+            case 20:
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SonySketch.ttf");
+                break;
+            case 21:
+                fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/SummerDream.ttf");
+                break;
+            case 22:
                 fontType = Typeface.createFromAsset(mResources.getAssets(), "fonts/Surfer.ttf");
                 break;
         }

@@ -52,22 +52,25 @@
     <string name="font_type_default">Default</string>
     <string name="font_type_2" translatable="false">Aclonica</string>
     <string name="font_type_3" translatable="false">Amarante</string>
-    <string name="font_type_4" translatable="false">Bariol</string>
-    <string name="font_type_5" translatable="false">Cagliostro</string>
-    <string name="font_type_6" translatable="false">Comic Sans</string>
-    <string name="font_type_7" translatable="false">Cool Story</string>
-    <string name="font_type_8" translatable="false">Fira Sans</string>
-    <string name="font_type_9" translatable="false">Google Sans</string>
-    <string name="font_type_10" translatable="false">Google Sans Medium</string>
-    <string name="font_type_11" translatable="false">LG Smart Gothic</string>
-    <string name="font_type_12" translatable="false">Linotte</string>
-    <string name="font_type_13" translatable="false">OnePlus Slate</string>
-    <string name="font_type_14" translatable="false">Rosemary</string>
-    <string name="font_type_15" translatable="false">Samsung One</string>
-    <string name="font_type_16" translatable="false">San Francisco</string>
-    <string name="font_type_17" translatable="false">Sony Sketch</string>
-    <string name="font_type_18" translatable="false">Summer Dream</string>
-    <string name="font_type_19" translatable="false">Surfer</string>
+    <string name="font_type_4" translatable="false">Arbutus</string>
+    <string name="font_type_5" translatable="false">ArvoLato</string>
+    <string name="font_type_6" translatable="false">Bariol</string>
+    <string name="font_type_7" translatable="false">Cagliostro</string>
+    <string name="font_type_8" translatable="false">Comic Sans</string>
+    <string name="font_type_9" translatable="false">Cool Story</string>
+    <string name="font_type_10" translatable="false">Fira Sans</string>
+    <string name="font_type_11" translatable="false">Google Sans</string>
+    <string name="font_type_12" translatable="false">Google Sans Medium</string>
+    <string name="font_type_13" translatable="false">LG Smart Gothic</string>
+    <string name="font_type_14" translatable="false">Linotte</string>
+    <string name="font_type_15" translatable="false">OnePlus Slate</string>
+    <string name="font_type_16" translatable="false">Rosemary</string>
+    <string name="font_type_17" translatable="false">RubikRubik</string>
+    <string name="font_type_18" translatable="false">Samsung One</string>
+    <string name="font_type_19" translatable="false">San Francisco</string>
+    <string name="font_type_20" translatable="false">Sony Sketch</string>
+    <string name="font_type_21" translatable="false">Summer Dream</string>
+    <string name="font_type_22" translatable="false">Surfer</string>
 
     <!-- Adaptive icon shapes -->
     <string name="adaptive_icon_shape_default">Default</string>
