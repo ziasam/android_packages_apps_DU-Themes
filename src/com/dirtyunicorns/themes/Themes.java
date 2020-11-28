@@ -74,7 +74,6 @@ public class Themes extends PreferenceFragment {
     private static final String PREF_THEME_SCHEDULE = "theme_schedule";
     private static final String PREF_QS_HEADER_STYLE = "qs_header_style";
     private static final String PREF_SWITCH_STYLE = "switch_style";
-    private static final String PREF_TILE_STYLE = "qs_tile_style";
     public static final String PREF_ADAPTIVE_ICON_SHAPE = "adapative_icon_shape";
     public static final String PREF_FONT_PICKER = "font_picker";
     public static final String PREF_STATUSBAR_ICONS = "statusbar_icons";
@@ -93,7 +92,6 @@ public class Themes extends PreferenceFragment {
     private ListPreference mThemeSwitch;
     private ListPreference mQsHeaderStyle;
     private ListPreference mSwitchStyle;
-    private ListPreference mQsTileStyle;
     private Preference mThemeSchedule;
     private Preference mWpPreview;
 
@@ -184,36 +182,6 @@ public class Themes extends PreferenceFragment {
             mAdaptiveIconShape.setValue("1");
         }
         mAdaptiveIconShape.setSummary(mAdaptiveIconShape.getEntry());
-
-        mQsTileStyle = (ListPreference) findPreference(PREF_TILE_STYLE);
-        int qsTileStyle = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.QS_TILE_STYLE, 0);
-        int qsTileStyleValue = getOverlayPosition(ThemesUtils.QS_TILE_THEMES);
-        if (qsTileStyleValue != 0) {
-            mQsTileStyle.setValue(String.valueOf(qsTileStyle));
-        }
-        mQsTileStyle.setSummary(mQsTileStyle.getEntry());
-        mQsTileStyle.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                if (preference == mQsTileStyle) {
-                    String value = (String) newValue;
-                    Settings.System.putInt(mContext.getContentResolver(), Settings.System.QS_TILE_STYLE, Integer.valueOf(value));
-                    int valueIndex = mQsTileStyle.findIndexOfValue(value);
-                    mQsTileStyle.setSummary(mQsTileStyle.getEntries()[valueIndex]);
-                    String overlayName = getOverlayName(ThemesUtils.QS_TILE_THEMES);
-                    if (overlayName != null) {
-                    handleOverlays(overlayName, false, mOverlayManager);
-                    }
-                    if (valueIndex > 0) {
-                        handleOverlays(ThemesUtils.QS_TILE_THEMES[valueIndex],
-                                true, mOverlayManager);
-                    }
-                    return true;
-                }
-                return false;
-            }
-       });
 
         // Statusbar icons
         mStatusbarIcons = (ListPreference) findPreference(PREF_STATUSBAR_ICONS);
