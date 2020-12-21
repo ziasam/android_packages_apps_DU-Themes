@@ -46,7 +46,9 @@ public class CustomPreference extends Preference {
     }
 
     private void setResources() {
-        if (Utils.isThemeEnabled("com.android.theme.icon_pack.rounded.android")) {
+        if (Utils.isThemeEnabled("com.android.theme.icon_pack.filled.android")) {
+            setLayoutResource(R.layout.themes_main_filled);
+        } else if (Utils.isThemeEnabled("com.android.theme.icon_pack.rounded.android")) {
             setLayoutResource(R.layout.themes_main_rounded);
         } else if (Utils.isThemeEnabled("com.android.theme.icon_pack.circular.android")) {
             setLayoutResource(R.layout.themes_main_circular);
