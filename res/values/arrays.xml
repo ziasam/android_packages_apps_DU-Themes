@@ -119,6 +119,7 @@
         <item>@string/theme_type_pitch_black</item>
         <item>@string/theme_type_solarized_dark</item>
         <item>@string/theme_type_choco_x</item>
+        <item>@string/theme_type_dark_grey</item>
     </string-array>
 
     <string-array name="theme_type_values">
@@ -127,6 +128,7 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
     </string-array>
 
     <!-- Themes schedule -->
@@ -146,6 +148,7 @@
         <item>@string/theme_type_pitch_black</item>
         <item>@string/theme_type_solarized_dark</item>
         <item>@string/theme_type_choco_x</item>
+        <item>@string/theme_type_dark_grey</item>
     </string-array>
 
     <string-array name="theme_scheduled_values">
@@ -154,6 +157,7 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>6</item>
     </string-array>
 
     <!-- Accent name -->
