@@ -245,4 +245,11 @@
     <string name="panel_kece">Kece</string>
     <string name="panel_outline">Outline</string>
 
+    <string name="rounded_ui_title">Rounded corner</string>
+    <string name="rounded_ui_dialog_title">Select rounded corner model</string>
+    <string name="rounded_style_default">Default</string>
+    <string name="rounded_style_rectangle">Rectangle</string>
+    <string name="rounded_style_large">Large</string>
+    <string name="rounded_style_medium">Medium</string>
+
 </resources>

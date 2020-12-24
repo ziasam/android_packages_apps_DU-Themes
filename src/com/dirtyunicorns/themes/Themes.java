@@ -84,6 +84,7 @@ public class Themes extends PreferenceFragment implements ThemesListener {
     private static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
     private static final String PREF_PANEL_BG = "panel_bg";
     private static final String PREF_QS_SHAPE = "qs_shape";
+    private static final String PREF_ROUNDED_CORNER = "rounded_ui";
 
     private int mBackupLimit = 10;
     private static boolean mUseSharedPrefListener;
@@ -112,6 +113,7 @@ public class Themes extends PreferenceFragment implements ThemesListener {
     private ListPreference mBrightnessSliderStyle;
     private ListPreference mPanelBg;
     private ListPreference mQsShape;
+    private ListPreference mRoundedUi;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -330,6 +332,15 @@ public class Themes extends PreferenceFragment implements ThemesListener {
         }
         mPanelBg.setSummary(mPanelBg.getEntry());
 
+        mRoundedUi = (ListPreference) findPreference(PREF_ROUNDED_CORNER);
+        int roundedValue = getOverlayPosition(ThemesUtils.UI_RADIUS);
+        if (roundedValue != -1) {
+            mRoundedUi.setValue(String.valueOf(roundedValue + 2));
+        } else {
+            mRoundedUi.setValue("1");
+        }
+        mRoundedUi.setSummary(mRoundedUi.getEntry());
+
         // Font picker
         mFontPicker = (ListPreference) findPreference(PREF_FONT_PICKER);
         int fontPickerValue = getOverlayPosition(ThemesUtils.FONTS);
@@ -539,6 +550,20 @@ public class Themes extends PreferenceFragment implements ThemesListener {
                             true, mOverlayManager);
                 }
                 mSwitchStyle.setSummary(mSwitchStyle.getEntry());
+            }
+
+            if (key.equals(PREF_ROUNDED_CORNER)) {
+            String roundedStyle = sharedPreferences.getString(PREF_ROUNDED_CORNER, "1");
+            int roundedValue = Integer.parseInt(rounded);
+            String overlayName = getOverlayName(ThemesUtils.UI_RADIUS);
+                if (overlayName != null) {
+                    handleOverlays(overlayName, false, mOverlayManager);
+                }
+                if (roundedValue > 1) {
+                    handleOverlays(ThemesUtils.UI_RADIUS[roundedValue -2],
+                            true, mOverlayManager);
+                }
+            mRoundedUi.setSummary(mRoundedUi.getEntry());
             }
 
             if (key.equals(PREF_THEME_SWITCH)) {
