@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019-2020 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+
+    <string name="app_name">主题</string>
+    <string name="schedule_footer_info">设置时间表时，请始终将第一个时间表时间设置为接近您的当前时间。\ n \ n例如：\ n如果当前时间是4:00 pm，并且您希望将时间表设置为6:00 am至6:00 pm，则可以将第一个主题设置为6:00 pm，然后将第二个主题设置为6:00 am。</string>
+    <string name="theme_accent_picker_default">默认</string>
+    <string name="dark_theme_title">Dark theme</string>
+    <string name="font_type_title">Font type</string>
+    <string name="font_type_summary">Select font type</string>
+    <string name="font_type_default">Default</string>
+    <string name="font_type_2">Noto Serif / Source Sans Pro</string>
+    <string name="font_type_3">Aclonica</string>
+    <string name="font_type_4">Amarante</string>
+    <string name="font_type_5">Arvolato</string>
+    <string name="font_type_6">Bariol</string>
+    <string name="font_type_7">Cagliostro</string>
+    <string name="font_type_8">CircularStd</string>
+    <string name="font_type_9">Comic Sans</string>
+    <string name="font_type_10">Comfortaa</string>
+    <string name="font_type_11">Cool Story</string>
+    <string name="font_type_12">Exotwo</string>
+    <string name="font_type_13">Fira Sans</string>
+    <string name="font_type_14">Google Sans</string>
+    <string name="font_type_15">LG Smart Gothic</string>
+    <string name="font_type_16">Rosemary</string>
+    <string name="font_type_17">Rubik</string>
+    <string name="font_type_18">Samsung One</string>
+    <string name="font_type_19">San Francisco Pro</string>
+    <string name="font_type_20">OnePlus Slate</string>
+    <string name="font_type_21">Sony Sketch</string>
+    <string name="font_type_22">Storopia</string>
+    <string name="font_type_23">Surfer</string>
+    <string name="font_type_24">Ubuntu</string>
+    <string name="font_type_25">Linotte</string>
+    <string name="adaptive_icon_shape_default">默认</string>
+    <string name="adaptive_icon_shape_teardrop">泪珠形</string>
+    <string name="adaptive_icon_shape_squircle">椭圆矩形</string>
+    <string name="adaptive_icon_shape_roundedrect">圆角矩形</string>
+    <string name="adaptive_icon_shape_cylinder">圆筒</string>
+    <string name="adaptive_icon_shape_hexagon">六边形</string>
+    <string name="adaptive_icon_shape_title">图标形状</string>
+    <string name="adaptive_icon_shape_dialog_title">选择图标形状</string>
+    <string name="statusbar_icons_default">默认</string>
+    <string name="statusbar_icons_filled">Filled</string>
+    <string name="statusbar_icons_rounded">Rounded</string>
+    <string name="statusbar_icons_circular">Circular</string>
+    <string name="statusbar_icons_title">状态栏与快速设置图标</string>
+    <string name="statusbar_icons_dialog_title">选择状态栏图标集</string>
+    <string name="qs_header_style_default">默认</string>
+    <string name="qs_header_style_grey">灰色</string>
+    <string name="qs_header_style_lightgrey">浅灰色</string>
+    <string name="qs_header_style_accent">强调色</string>
+    <string name="qs_header_style_transparent">透明</string>
+    <string name="qs_header_style_title">快速设置顶部样式</string>
+    <string name="qs_header_style_dialog_title">选择快速设置顶部的样式集</string>
+    <string name="switch_style_title">开关风格</string>
+    <string name="switch_default">默认</string>
+    <string name="switch_md2">Material Design 3</string>
+    <string name="switch_oneplus">一加</string>
+    <string name="switch_tg">电报</string>
+    <string name="switch_narrow">Narrow</string>
+    <string name="switch_contained">Contained</string>
+    <string name="switch_retro">复古风</string>
+    <string name="switch_stockish">Stockish</string>
+    <string name="switch_style_dialog_title">选择开关样式集</string>
+    <string name="theme_type_title">系统主题</string>
+    <string name="theme_type_summary">选择主题</string>
+    <string name="theme_type_light">亮色</string>
+    <string name="theme_type_google_dark">谷歌暗</string>
+    <string name="theme_type_pitch_black">漆黑</string>
+    <string name="theme_type_solarized_dark">日光暗</string>
+    <string name="theme_type_choco_x">巧克力X</string>
+    <string name="theme_type_baked_green">烤绿色</string>
+    <string name="theme_type_dark_grey">深灰色</string>
+    <string name="theme_type_material_ocean">Material ocean</string>
+    <string name="theme_type_transparent_clear">暗色透明</string>
+    <string name="theme_other_category_title">其他</string>
+    <string name="theme_button_delete_theme">删除主题</string>
+    <string name="theme_switch_persistent_title">持续性的开关状态</string>
+    <string name="theme_reset_dialog_title">重置主题选项</string>
+    <string name="theme_reset_dialog_message">所有主题选项将重置为默认值。时间表将不受此影响。</string>
+    <string name="theme_reset_toast">主题选项恢复为默认</string>
+    <string name="theme_schedule_title">时间表</string>
+    <string name="theme_schedule_summary">设置系统主题的时间表</string>
+    <string name="theme_schedule_dyn_summary">主题已安排</string>
+    <string name="theme_schedule_theme_title">时间表主题</string>
+    <string name="theme_schedule_theme_summary">选择要安排的主题</string>
+    <string name="theme_schedule_none">没有</string>
+    <string name="theme_schedule_custom_time">在自定义时间打开</string>
+    <string name="theme_schedule_applied">主题已套用</string>
+    <string name="theme_schedule_start_scheduled">主题开始于</string>
+    <string name="theme_schedule_repeat_title">重复安排</string>
+    <string name="theme_schedule_repeat_summary">每天重复计划</string>
+    <string name="theme_schedule_toasts_title">显示广播通知</string>
+    <string name="theme_schedule_toasts_summary">启动预定主题时显示广播通知</string>
+    <string name="clock_style_title">时钟样式</string>
+    <string name="clock_style_summary">自定义锁屏时钟</string>
+
+</resources>
