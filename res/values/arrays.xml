@@ -93,25 +93,24 @@
 
     <!-- QS tile styles -->
     <string-array name="qs_tile_style_selector_entries" translatable="false">
-        <item>@string/qs_tile_style_default</item>
-        <item>@string/qs_tile_style_square</item>
-        <item>@string/qs_tile_style_squircletrim</item>
-        <item>@string/qs_tile_style_diamond</item>
-        <item>@string/qs_tile_style_star</item>
-        <item>@string/qs_tile_style_gear</item>
-        <item>@string/qs_tile_style_badge</item>
-        <item>@string/qs_tile_style_badgetwo</item>
-        <item>@string/qs_tile_style_circletrim</item>
-        <item>@string/qs_tile_style_dualtonecircletrim</item>
-        <item>@string/qs_tile_style_cookie</item>
-        <item>@string/qs_tile_style_circleoutline</item>
-        <item>@string/qs_tile_style_wavey</item>
-        <item>@string/qs_tile_style_ninja</item>
-        <item>@string/qs_tile_style_dottedcircle</item>
-        <item>@string/qs_tile_style_attemptmountain</item>
-        <item>@string/qs_tile_style_inkdrop</item>
-        <item>@string/qs_tile_style_neonlike</item>
-        <item>@string/qs_tile_style_triangles</item>
+        <item>@string/qstile_default</item>
+        <item>@string/qstile_circle_trim</item>
+        <item>@string/qstile_dual_tone_circle</item>
+        <item>@string/qstile_squircle_trim</item>
+        <item>@string/qstile_wavey</item>
+        <item>@string/qstile_pokesign</item>
+        <item>@string/qstile_ninja</item>
+        <item>@string/qstile_dottedcircle</item>
+        <item>@string/qstile_attemptmountain</item>
+        <item>@string/qstile_squaremedo</item>
+        <item>@string/qstile_inkdrop</item>
+        <item>@string/qstile_cookie</item>
+        <item>@string/qstile_circleoutline</item>
+        <item>@string/qstile_cosmos</item>
+        <item>@string/qstile_divided</item>
+        <item>@string/qstile_neonlike</item>
+        <item>@string/qstile_oos</item>
+        <item>@string/qstile_triangles</item>
     </string-array>
 
     <string-array name="qs_tile_style_selector_values" translatable="false">
@@ -133,7 +132,6 @@
         <item>15</item>
         <item>16</item>
         <item>17</item>
-        <item>18</item>
     </string-array>
 
     <!-- Statusbar icons -->
