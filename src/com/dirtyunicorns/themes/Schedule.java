@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pixeldust.themes;
+package com.dirtyunicorns.themes;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -36,26 +36,26 @@ import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
 
-import com.pixeldust.themes.receivers.ThemesEndReceiver;
-import com.pixeldust.themes.receivers.ThemesStartReceiver;
+import com.dirtyunicorns.themes.receivers.ThemesEndReceiver;
+import com.dirtyunicorns.themes.receivers.ThemesStartReceiver;
 
 import java.text.DateFormat;
 import java.util.Calendar;
 
-import static com.pixeldust.themes.utils.Utils.clearAlarms;
-import static com.pixeldust.themes.utils.Utils.getScheduledEndTheme;
-import static com.pixeldust.themes.utils.Utils.getScheduledEndThemeSummary;
-import static com.pixeldust.themes.utils.Utils.getScheduledEndThemeTime;
-import static com.pixeldust.themes.utils.Utils.getScheduledEndThemeValue;
-import static com.pixeldust.themes.utils.Utils.getScheduledStartTheme;
-import static com.pixeldust.themes.utils.Utils.getScheduledStartThemeSummary;
-import static com.pixeldust.themes.utils.Utils.getScheduledStartThemeTime;
-import static com.pixeldust.themes.utils.Utils.getScheduledStartThemeValue;
-import static com.pixeldust.themes.utils.Utils.getThemeSchedule;
-import static com.pixeldust.themes.utils.Utils.setEndAlarm;
-import static com.pixeldust.themes.utils.Utils.setEndTime;
-import static com.pixeldust.themes.utils.Utils.setStartAlarm;
-import static com.pixeldust.themes.utils.Utils.setStartTime;
+import static com.dirtyunicorns.themes.utils.Utils.clearAlarms;
+import static com.dirtyunicorns.themes.utils.Utils.getScheduledEndTheme;
+import static com.dirtyunicorns.themes.utils.Utils.getScheduledEndThemeSummary;
+import static com.dirtyunicorns.themes.utils.Utils.getScheduledEndThemeTime;
+import static com.dirtyunicorns.themes.utils.Utils.getScheduledEndThemeValue;
+import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartTheme;
+import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeSummary;
+import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeTime;
+import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeValue;
+import static com.dirtyunicorns.themes.utils.Utils.getThemeSchedule;
+import static com.dirtyunicorns.themes.utils.Utils.setEndAlarm;
+import static com.dirtyunicorns.themes.utils.Utils.setEndTime;
+import static com.dirtyunicorns.themes.utils.Utils.setStartAlarm;
+import static com.dirtyunicorns.themes.utils.Utils.setStartTime;
 
 public class Schedule extends Activity {
 

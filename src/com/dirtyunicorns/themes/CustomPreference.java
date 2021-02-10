@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.pixeldust.themes;
+package com.dirtyunicorns.themes;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import androidx.preference.Preference;
 
-import com.android.internal.util.pixeldust.PixeldustUtils;
+import com.android.internal.util.du.Utils;
 
 public class CustomPreference extends Preference {
 
@@ -46,29 +46,29 @@ public class CustomPreference extends Preference {
     }
 
     public void setResources() {
-        if (PixeldustUtils.isThemeEnabled("com.android.theme.icon_pack.filled.android")) {
+        if (Utils.isThemeEnabled("com.android.theme.icon_pack.filled.android")) {
             setLayoutResource(R.layout.themes_main_filled);
-        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.icon_pack.rounded.android")) {
+        } else if (Utils.isThemeEnabled("com.android.theme.icon_pack.rounded.android")) {
             setLayoutResource(R.layout.themes_main_rounded);
-        } else if (PixeldustUtils.isThemeEnabled("com.android.theme.icon_pack.circular.android")) {
+        } else if (Utils.isThemeEnabled("com.android.theme.icon_pack.circular.android")) {
             setLayoutResource(R.layout.themes_main_circular);
-        } else if (PixeldustUtils.isTileStyleEnabled("com.android.systemui.qstile.circletrim")) {
+        } else if (Utils.isTileStyleEnabled("com.android.systemui.qstile.circletrim")) {
             setLayoutResource(R.layout.themes_main_circletrim);
-        } else if (PixeldustUtils.isTileStyleEnabled("com.android.systemui.qstile.dualtonecircletrim")) {
+        } else if (Utils.isTileStyleEnabled("com.android.systemui.qstile.dualtonecircletrim")) {
             setLayoutResource(R.layout.themes_main_dualtonecircletrim);
-        } else if (PixeldustUtils.isTileStyleEnabled("com.android.systemui.qstile.squircletrim")) {
+        } else if (Utils.isTileStyleEnabled("com.android.systemui.qstile.squircletrim")) {
             setLayoutResource(R.layout.themes_main_squircletrim);
-        } else if (PixeldustUtils.isTileStyleEnabled("com.android.systemui.qstile.attemptmountain")) {
+        } else if (Utils.isTileStyleEnabled("com.android.systemui.qstile.attemptmountain")) {
             setLayoutResource(R.layout.themes_main_attemptmountain);
-        } else if (PixeldustUtils.isTileStyleEnabled("com.android.systemui.qstile.cosmos")) {
+        } else if (Utils.isTileStyleEnabled("com.android.systemui.qstile.cosmos")) {
             setLayoutResource(R.layout.themes_main_cosmos);
-        } else if (PixeldustUtils.isTileStyleEnabled("com.android.systemui.qstile.dottedcircle")) {
+        } else if (Utils.isTileStyleEnabled("com.android.systemui.qstile.dottedcircle")) {
             setLayoutResource(R.layout.themes_main_dottedcircle);
-        } else if (PixeldustUtils.isTileStyleEnabled("com.android.systemui.qstile.ninja")) {
+        } else if (Utils.isTileStyleEnabled("com.android.systemui.qstile.ninja")) {
             setLayoutResource(R.layout.themes_main_ninja);
-        } else if (PixeldustUtils.isTileStyleEnabled("com.android.systemui.qstile.pokesign")) {
+        } else if (Utils.isTileStyleEnabled("com.android.systemui.qstile.pokesign")) {
             setLayoutResource(R.layout.themes_main_pokesign);
-        } else if (PixeldustUtils.isTileStyleEnabled("com.android.systemui.qstile.wavey")) {
+        } else if (Utils.isTileStyleEnabled("com.android.systemui.qstile.wavey")) {
             setLayoutResource(R.layout.themes_main_wavey);
         } else {
             setLayoutResource(R.layout.themes_main);

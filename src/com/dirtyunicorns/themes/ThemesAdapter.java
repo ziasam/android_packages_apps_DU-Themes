@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.pixeldust.themes;
+package com.dirtyunicorns.themes;
 
-import static com.pixeldust.themes.utils.Utils.threeButtonNavbarEnabled;
+import static com.dirtyunicorns.themes.utils.Utils.threeButtonNavbarEnabled;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -44,7 +44,7 @@ import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.pixeldust.themes.utils.ThemesListItem;
+import com.dirtyunicorns.themes.utils.ThemesListItem;
 
 import java.io.File;
 import java.util.List;

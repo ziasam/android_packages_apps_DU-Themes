@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pixeldust.themes.utils;
+package com.dirtyunicorns.themes.utils;
 
 public class ThemeDbUtils {
 

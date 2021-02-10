@@ -37,6 +37,11 @@
         <item>@string/font_type_18</item>
         <item>@string/font_type_19</item>
         <item>@string/font_type_20</item>
+        <item>@string/font_type_21</item>
+        <item>@string/font_type_22</item>
+        <item>@string/font_type_23</item>
+        <item>@string/font_type_24</item>
+        <item>@string/font_type_25</item>
     </string-array>
 
     <string-array name="font_type_values">
@@ -60,6 +65,11 @@
         <item>18</item>
         <item>19</item>
         <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
     </string-array>
 
     <!-- Adaptive icon shapes -->
@@ -119,7 +129,10 @@
         <item>@string/theme_type_pitch_black</item>
         <item>@string/theme_type_solarized_dark</item>
         <item>@string/theme_type_choco_x</item>
+        <item>@string/theme_type_baked_green</item>
         <item>@string/theme_type_dark_grey</item>
+        <item>@string/theme_type_material_ocean</item>
+        <item>@string/theme_type_transparent_clear</item>
     </string-array>
 
     <string-array name="theme_type_values">
@@ -129,6 +142,9 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
     </string-array>
 
     <!-- Themes schedule -->
@@ -289,7 +305,6 @@
         <item>old_layout</item>
         <item>oneplus_layout</item>
         <item>oneui_layout</item>
-        <item>pd_layout</item>
         <item>sammy_layout</item>
         <item>tecno_layout</item>
     </string-array>

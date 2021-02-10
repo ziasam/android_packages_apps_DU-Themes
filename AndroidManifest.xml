@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pixeldust.themes"
+    package="com.dirtyunicorns.themes"
     coreApp="true"
     android:sharedUserId="android.uid.system">
 

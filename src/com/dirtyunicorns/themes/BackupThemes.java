@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.pixeldust.themes;
+package com.dirtyunicorns.themes;
 
-import static com.pixeldust.themes.utils.Utils.threeButtonNavbarEnabled;
+import static com.dirtyunicorns.themes.utils.Utils.threeButtonNavbarEnabled;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -45,8 +45,8 @@ import android.widget.Toast;
 import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
-import com.pixeldust.themes.db.ThemeDatabase;
-import com.pixeldust.themes.utils.ThemeDbUtils;
+import com.dirtyunicorns.themes.db.ThemeDatabase;
+import com.dirtyunicorns.themes.utils.ThemeDbUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

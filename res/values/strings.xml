@@ -36,7 +36,6 @@
     <string name="theme_navbar_picker_oneui">One UI</string>
     <string name="theme_navbar_picker_tecno">Tecno Camon</string>
     <string name="theme_navbar_picker_asus">ASUS</string>
-    <string name="theme_navbar_picker_pd">PixelDust</string>
     <string name="theme_navbar_picker_android">Android</string>
     <string name="theme_navbar_picker_moto">Moto</string>
     <string name="theme_navbar_picker_nexus">Nexus</string>
@@ -46,29 +45,6 @@
     <!-- Dark theme -->
     <string name="dark_theme_title">Dark theme</string>
 
-    <!-- Fonts -->
-    <string name="font_type_title">Font type</string>
-    <string name="font_type_summary">Select font type</string>
-    <string name="font_type_default">Default</string>
-    <string name="font_type_2" translatable="false">Aclonica</string>
-    <string name="font_type_3" translatable="false">Amarante</string>
-    <string name="font_type_4" translatable="false">Arbutus</string>
-    <string name="font_type_5" translatable="false">Bariol</string>
-    <string name="font_type_6" translatable="false">Cagliostro</string>
-    <string name="font_type_7" translatable="false">Comic Sans</string>
-    <string name="font_type_8" translatable="false">Cool Story</string>
-    <string name="font_type_9" translatable="false">Fira Sans</string>
-    <string name="font_type_10" translatable="false">Google Sans</string>
-    <string name="font_type_11" translatable="false">Google Sans Medium</string>
-    <string name="font_type_12" translatable="false">LG Smart Gothic</string>
-    <string name="font_type_13" translatable="false">Linotte</string>
-    <string name="font_type_14" translatable="false">OnePlus Slate</string>
-    <string name="font_type_15" translatable="false">Rosemary</string>
-    <string name="font_type_16" translatable="false">Samsung One</string>
-    <string name="font_type_17" translatable="false">San Francisco</string>
-    <string name="font_type_18" translatable="false">Sony Sketch</string>
-    <string name="font_type_19" translatable="false">Summer Dream</string>
-    <string name="font_type_20" translatable="false">Surfer</string>
 
     <!-- Adaptive icon shapes -->
     <string name="adaptive_icon_shape_default">Default</string>
@@ -154,8 +130,11 @@
     <string name="theme_type_google_dark">Google dark</string>
     <string name="theme_type_pitch_black">Pitch black</string>
     <string name="theme_type_solarized_dark">Solarized dark</string>
-    <string name="theme_type_choco_x">Black coffee</string>
+    <string name="theme_type_choco_x">Choco X</string>
+    <string name="theme_type_baked_green">Baked green</string>
     <string name="theme_type_dark_grey">Dark grey</string>
+    <string name="theme_type_material_ocean">Material ocean</string>
+    <string name="theme_type_transparent_clear">transparent clear</string>
     <string name="theme_other_category_title">Other</string>
     <string name="theme_backup_title">Backup theme</string>
     <string name="theme_backup_summary">Backup your current theme configuration</string>
@@ -202,6 +181,35 @@
     <!-- Clock style -->
     <string name="clock_style_title">Clock style</string>
     <string name="clock_style_summary">Customize lockscreen clock</string>
+
+    <!-- Fonts -->
+    <string name="font_type_title">Font type</string>
+    <string name="font_type_summary">Select font type</string>
+    <string name="font_type_default">Default</string>
+    <string name="font_type_2">Noto Serif / Source Sans Pro</string>
+    <string name="font_type_3">Aclonica</string>
+    <string name="font_type_4">Amarante</string>
+    <string name="font_type_5">Arvolato</string>
+    <string name="font_type_6">Bariol</string>
+    <string name="font_type_7">Cagliostro</string>
+    <string name="font_type_8">CircularStd</string>
+    <string name="font_type_9">Comic Sans</string>
+    <string name="font_type_10">Comfortaa</string>
+    <string name="font_type_11">Cool Story</string>
+    <string name="font_type_12">Exotwo</string>
+    <string name="font_type_13">Fira Sans</string>
+    <string name="font_type_14">Google Sans</string>
+    <string name="font_type_15">LG Smart Gothic</string>
+    <string name="font_type_16">Rosemary</string>
+    <string name="font_type_17">Rubik</string>
+    <string name="font_type_18">Samsung One</string>
+    <string name="font_type_19">San Francisco Pro</string>
+    <string name="font_type_20">OnePlus Slate</string>
+    <string name="font_type_21">Sony Sketch</string>
+    <string name="font_type_22">Storopia</string>
+    <string name="font_type_23">Surfer</string>
+    <string name="font_type_24">Ubuntu</string>
+    <string name="font_type_25">Linotte</string>
 
     <!-- QS tile styles -->
     <string name="theme_qsstyle_picker_title">QS tile style</string>

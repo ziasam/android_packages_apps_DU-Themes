@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pixeldust.themes.db;
+package com.dirtyunicorns.themes.db;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -22,7 +22,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.pixeldust.themes.utils.ThemeDbUtils;
+import com.dirtyunicorns.themes.utils.ThemeDbUtils;
 
 import java.util.ArrayList;
 import java.util.List;

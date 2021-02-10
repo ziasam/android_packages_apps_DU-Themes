@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.pixeldust.themes.utils;
+package com.dirtyunicorns.themes.utils;
 
 import static android.content.Context.ALARM_SERVICE;
 import static android.os.UserHandle.USER_SYSTEM;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULE;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME_VALUE;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_TIME;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_REPEAT_DAILY;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME_VALUE;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_TIME;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_ALARM_START_TIME;
-import static com.pixeldust.themes.Schedule.ScheduleFragment.PREF_ALARM_END_TIME;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULE;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_THEME_VALUE;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_END_TIME;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_REPEAT_DAILY;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME_VALUE;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_TIME;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_ALARM_START_TIME;
+import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_ALARM_END_TIME;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -48,12 +48,12 @@ import android.widget.Button;
 
 import androidx.preference.PreferenceManager;
 
-import com.android.internal.util.pixeldust.PixeldustUtils;
-import com.android.internal.util.pixeldust.ThemesUtils;
+import com.android.internal.util.du.Utils;
+import com.android.internal.util.du.ThemesUtils;
 
-import com.pixeldust.themes.R;
-import com.pixeldust.themes.receivers.ThemesEndReceiver;
-import com.pixeldust.themes.receivers.ThemesStartReceiver;
+import com.dirtyunicorns.themes.R;
+import com.dirtyunicorns.themes.receivers.ThemesEndReceiver;
+import com.dirtyunicorns.themes.receivers.ThemesStartReceiver;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -178,7 +178,7 @@ public class Utils {
     }
 
     public static void setForegroundDrawable(String packagename, Button buttonAccent, Activity activity) {
-        if (com.android.internal.util.pixeldust.PixeldustUtils.isThemeEnabled(packagename)) {
+        if (com.android.internal.util.du.Utils.isThemeEnabled(packagename)) {
             buttonAccent.setForeground(activity.getResources().getDrawable(
                     R.drawable.accent_picker_checkmark, null));
         } else {
@@ -269,7 +269,7 @@ public class Utils {
     }
 
     public static boolean threeButtonNavbarEnabled(Context context) {
-        boolean defaultToNavigationBar = PixeldustUtils.deviceSupportNavigationBar(context);
+        boolean defaultToNavigationBar = Utils.deviceSupportNavigationBar(context);
         boolean navigationBar = Settings.System.getInt(context.getContentResolver(),
                 Settings.System.FORCE_SHOW_NAVBAR, defaultToNavigationBar ? 1 : 0) == 1;
         boolean hasNavbar = (context.getResources().getInteger(
