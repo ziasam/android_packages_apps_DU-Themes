@@ -42,20 +42,20 @@ import com.dirtyunicorns.themes.receivers.ThemesStartReceiver;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-import static com.dirtyunicorns.themes.utils.Utils.clearAlarms;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledEndTheme;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledEndThemeSummary;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledEndThemeTime;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledEndThemeValue;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartTheme;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeSummary;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeTime;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeValue;
-import static com.dirtyunicorns.themes.utils.Utils.getThemeSchedule;
-import static com.dirtyunicorns.themes.utils.Utils.setEndAlarm;
-import static com.dirtyunicorns.themes.utils.Utils.setEndTime;
-import static com.dirtyunicorns.themes.utils.Utils.setStartAlarm;
-import static com.dirtyunicorns.themes.utils.Utils.setStartTime;
+import static com.dirtyunicorns.themes.utils.duUtils.clearAlarms;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledEndTheme;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledEndThemeSummary;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledEndThemeTime;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledEndThemeValue;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledStartTheme;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledStartThemeSummary;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledStartThemeTime;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledStartThemeValue;
+import static com.dirtyunicorns.themes.utils.duUtils.getThemeSchedule;
+import static com.dirtyunicorns.themes.utils.duUtils.setEndAlarm;
+import static com.dirtyunicorns.themes.utils.duUtils.setEndTime;
+import static com.dirtyunicorns.themes.utils.duUtils.setStartAlarm;
+import static com.dirtyunicorns.themes.utils.duUtils.setStartTime;
 
 public class Schedule extends Activity {
 

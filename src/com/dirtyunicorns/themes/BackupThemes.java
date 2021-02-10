@@ -16,7 +16,7 @@
 
 package com.dirtyunicorns.themes;
 
-import static com.dirtyunicorns.themes.utils.Utils.threeButtonNavbarEnabled;
+import static com.dirtyunicorns.themes.utils.duUtils.threeButtonNavbarEnabled;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

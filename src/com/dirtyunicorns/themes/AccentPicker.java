@@ -16,7 +16,7 @@
 
 package com.dirtyunicorns.themes;
 
-import static com.dirtyunicorns.themes.utils.Utils.setForegroundDrawable;
+import static com.dirtyunicorns.themes.utils.duUtils.setForegroundDrawable;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

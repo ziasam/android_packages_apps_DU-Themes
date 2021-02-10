@@ -16,7 +16,7 @@
 
 package com.dirtyunicorns.themes;
 
-import static com.dirtyunicorns.themes.utils.Utils.threeButtonNavbarEnabled;
+import static com.dirtyunicorns.themes.utils.duUtils.threeButtonNavbarEnabled;
 
 import android.app.ActionBar;
 import android.app.Activity;

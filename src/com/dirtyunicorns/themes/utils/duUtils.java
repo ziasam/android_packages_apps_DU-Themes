@@ -58,7 +58,7 @@ import com.dirtyunicorns.themes.receivers.ThemesStartReceiver;
 import java.util.Calendar;
 import java.util.Objects;
 
-public class Utils {
+public class duUtils {
 
     private static long mAlarmEndTime;
     private static long mAlarmStartTime;

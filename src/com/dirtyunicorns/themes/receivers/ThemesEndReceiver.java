@@ -28,9 +28,9 @@ import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHE
 import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_THEME_VALUE;
 import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_START_TIME;
 import static com.dirtyunicorns.themes.Schedule.ScheduleFragment.PREF_THEME_SCHEDULED_TOAST;
-import static com.dirtyunicorns.themes.utils.Utils.clearAlarms;
-import static com.dirtyunicorns.themes.utils.Utils.handleBackgrounds;
-import static com.dirtyunicorns.themes.utils.Utils.setEndAlarm;
+import static com.dirtyunicorns.themes.utils.duUtils.clearAlarms;
+import static com.dirtyunicorns.themes.utils.duUtils.handleBackgrounds;
+import static com.dirtyunicorns.themes.utils.duUtils.setEndAlarm;
 
 import android.app.UiModeManager;
 import android.content.BroadcastReceiver;

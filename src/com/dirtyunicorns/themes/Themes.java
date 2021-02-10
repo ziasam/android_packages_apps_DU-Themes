@@ -17,13 +17,13 @@
 package com.dirtyunicorns.themes;
 
 import static android.os.UserHandle.USER_SYSTEM;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeSummary;
-import static com.dirtyunicorns.themes.utils.Utils.getScheduledStartThemeTime;
-import static com.dirtyunicorns.themes.utils.Utils.getThemeSchedule;
-import static com.dirtyunicorns.themes.utils.Utils.handleBackgrounds;
-import static com.dirtyunicorns.themes.utils.Utils.handleOverlays;
-import static com.dirtyunicorns.themes.utils.Utils.isLiveWallpaper;
-import static com.dirtyunicorns.themes.utils.Utils.threeButtonNavbarEnabled;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledStartThemeSummary;
+import static com.dirtyunicorns.themes.utils.duUtils.getScheduledStartThemeTime;
+import static com.dirtyunicorns.themes.utils.duUtils.getThemeSchedule;
+import static com.dirtyunicorns.themes.utils.duUtils.handleBackgrounds;
+import static com.dirtyunicorns.themes.utils.duUtils.handleOverlays;
+import static com.dirtyunicorns.themes.utils.duUtils.isLiveWallpaper;
+import static com.dirtyunicorns.themes.utils.duUtils.threeButtonNavbarEnabled;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
