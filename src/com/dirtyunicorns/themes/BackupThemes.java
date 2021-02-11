@@ -282,9 +282,6 @@ public class BackupThemes extends DialogFragment {
             case "com.android.theme.navbar.oneui":
                 navbarBackup = mResources.getDrawable(R.drawable.navbar_oneui_layer);
                 break;
-            case "com.android.theme.navbar.pd":
-                navbarBackup = mResources.getDrawable(R.drawable.navbar_pd_layer);
-                break;
             case "com.android.theme.navbar.sammy":
                 navbarBackup = mResources.getDrawable(R.drawable.navbar_sammy_layer);
                 break;

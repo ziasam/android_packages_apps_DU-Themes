@@ -1211,9 +1211,6 @@ public class ThemesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             case "com.android.theme.navbar.oneui":
                 navbarStyle = mResources.getDrawable(R.drawable.navbar_oneui_layer);
                 break;
-            case "com.android.theme.navbar.pd":
-                navbarStyle = mResources.getDrawable(R.drawable.navbar_pd_layer);
-                break;
             case "com.android.theme.navbar.sammy":
                 navbarStyle = mResources.getDrawable(R.drawable.navbar_sammy_layer);
                 break;

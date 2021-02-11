@@ -99,17 +99,9 @@
             <include layout="@layout/navbar_sammy"
                 android:id="@+id/sammy_layout"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@+id/pd_layout"
+                android:layout_below="@+id/oneui_layout"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:layout_marginBottom="20dp"/>
-
-            <include layout="@layout/navbar_pd"	
-                android:id="@+id/pd_layout"	
-                android:layout_centerHorizontal="true"	
-                android:layout_below="@+id/oneui_layout"	
-                android:layout_height="wrap_content"	
-                android:layout_width="wrap_content"	
                 android:layout_marginBottom="20dp"/>
 
             <include layout="@layout/navbar_tecno"
